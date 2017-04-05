@@ -21,13 +21,13 @@ CREATE TABLE Customer (
 );
 CREATE TABLE Seller (
 	SellerID INTEGER AUTO_INCREMENT NOT NULL,
-    Email VARCHAR(50) UNIQUE NOT NULL,
-    Password VARCHAR(50) NOT NULL,
-    Name VARCHAR(30) NOT NULL,
+	Email VARCHAR(50) UNIQUE NOT NULL,
+	Password VARCHAR(50) NOT NULL,
+	Name VARCHAR(30) NOT NULL,
 	Address VARCHAR (50),
 	Phone CHAR(12),
 	Revenue REAL,
-    Type INTEGER NOT NULL, /* can be 0 or 1, 0 is indi 1 is supplier*/
+	Type INTEGER NOT NULL, /* can be 0 or 1, 0 is indi 1 is supplier*/
 	PRIMARY KEY (SellerID)
 );
 CREATE TABLE Item (
@@ -35,15 +35,15 @@ CREATE TABLE Item (
 	Name VARCHAR(255) NOT NULL,
 	Info VARCHAR (255),
 	Price REAL NOT NULL,
-    Method INTEGER NOT NULL, /* 0 is sell, 1 is bid*/
-    Type INTEGER NOT NULL, /*0 electronics, 1 clothes, 2 books*/
+	Method INTEGER NOT NULL, /* 0 is sell, 1 is bid*/
+	Type INTEGER NOT NULL, /*0 electronics, 1 clothes, 2 books*/
 	PRIMARY KEY (ItemID)
 );
 CREATE TABLE Shipper (
 	ShipperID INTEGER AUTO_INCREMENT NOT NULL,
-    Name VARCHAR(30),
-    Email VARCHAR(50),
-    Phone CHAR(12),
+	Name VARCHAR(30),
+	Email VARCHAR(50),
+	Phone CHAR(12),
 	PRIMARY KEY (ShipperID)
 );
 
@@ -64,30 +64,30 @@ CREATE TABLE Supplier (
 );
 CREATE TABLE Bid_Item (
 	ItemID INTEGER NOT NULL,
-    Start_Time TIMESTAMP NOT NULL,
-    End_Time TIMESTAMP NOT NULL, /*need to add a year to this*/
-    Reserve_Price REAL,
-    Status VARCHAR(30),
-    PRIMARY KEY (ItemID),
-    FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+	Start_Time TIMESTAMP NOT NULL,
+	End_Time TIMESTAMP NOT NULL, /*need to add a year to this*/
+	Reserve_Price REAL,
+	Status VARCHAR(30),
+	PRIMARY KEY (ItemID),
+	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
 CREATE TABLE Sell_Item (
 	ItemID INTEGER NOT NULL,
-    PRIMARY KEY (ItemID),
-    FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+	PRIMARY KEY (ItemID),
+	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
 CREATE TABLE Electronics (
 	ItemID INTEGER NOT NULL,
-    Categories VARCHAR(30),
+	Categories VARCHAR(30),
 	PRIMARY KEY (ItemID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 		ON DELETE CASCADE
 );
 CREATE TABLE Clothes (
 	ItemID INTEGER NOT NULL,
-    Gender VARCHAR(1),
-    Categories VARCHAR(30),
-    Age_Group VARCHAR(10),
+	Gender VARCHAR(1),
+	Categories VARCHAR(30),
+	Age_Group VARCHAR(10),
 	Size CHAR (2),
 	PRIMARY KEY (ItemID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
@@ -96,7 +96,7 @@ CREATE TABLE Clothes (
 CREATE TABLE Books (
 	ItemID INTEGER NOT NULL,
 	Author VARCHAR(25),
-    Categories VARCHAR(30),
+	Categories VARCHAR(30),
 	PRIMARY KEY (ItemID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 		ON DELETE CASCADE
@@ -105,16 +105,16 @@ CREATE TABLE Books (
 /*"Action Tables"*/
 CREATE TABLE Orders (
 	OrderID INTEGER AUTO_INCREMENT NOT NULL,
-    ItemID INTEGER NOT NULL,
+	ItemID INTEGER NOT NULL,
 	Qty INTEGER NOT NULL,
 	Order_Date TIMESTAMP NOT NULL,
 	Ship_Date TIMESTAMP,
 	PRIMARY KEY (OrderID),
-    FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
 CREATE TABLE Bid (
 	BidID INTEGER AUTO_INCREMENT NOT NULL,
-    ItemID INTEGER NOT NULL,
+	ItemID INTEGER NOT NULL,
 	Price INTEGER NOT NULL,
 	PRIMARY KEY (BidID)
 );
@@ -139,26 +139,26 @@ CREATE TABLE Cus_has (
 	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 		ON DELETE CASCADE
 );
-CREATE TABLE Cus_Earns (
-	CustomerID INTEGER NOT NULL,
-	PointsID INTEGER NOT NULL,
-	PRIMARY KEY (CustomerID, PointsID),
-	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
-	FOREIGN KEY (PointsID) REFERENCES Points(PointsID)
-);
 CREATE TABLE Cus_Place_Ord (
 	OrderID INTEGER NOT NULL,
 	CustomerID INTEGER NOT NULL,
 	PRIMARY KEY (OrderID, CustomerID),
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
 	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );
 CREATE TABLE Cus_Place_Bid (
 	BidID INTEGER NOT NULL,
 	CustomerID INTEGER NOT NULL,
-    PRIMARY KEY (BidID, CustomerID),
-    FOREIGN KEY (BidID) REFERENCES Bid(BidID),
-    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+	PRIMARY KEY (BidID, CustomerID),
+	FOREIGN KEY (BidID) REFERENCES Bid(BidID),
+	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
+CREATE TABLE Cus_Earns_Points (
+	CustomerID INTEGER NOT NULL,
+	PointsID INTEGER NOT NULL,
+	PRIMARY KEY (CustomerID, PointsID),
+	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+	FOREIGN KEY (PointsID) REFERENCES Points(PointsID)
 );
 CREATE TABLE Seller_Supplied (
 	SellerID INTEGER NOT NULL,
@@ -183,18 +183,18 @@ CREATE TABLE Order_Contains (
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
 CREATE TABLE Shipped (
-		ShipperID INTEGER NOT NULL,
-        TrackingNum VARCHAR(20),
-		ItemID INTEGER NOT NULL,
-		PRIMARY KEY (TrackingNum),
-		FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
-		FOREIGN KEY (TrackingNum) REFERENCES Shipping_Info(TrackingNum),
-		FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+	ShipperID INTEGER NOT NULL,
+	TrackingNum VARCHAR(20),
+	ItemID INTEGER NOT NULL,
+	PRIMARY KEY (TrackingNum),
+	FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
+	FOREIGN KEY (TrackingNum) REFERENCES Shipping_Info(TrackingNum),
+	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
 CREATE TABLE Deliver (
 	ShipperID INTEGER NOT NULL,
-    TrackingNum VARCHAR(20) NOT NULL,
-    CustomerID INTEGER NOT NULL,
+	TrackingNum VARCHAR(20) NOT NULL,
+	CustomerID INTEGER NOT NULL,
 	PRIMARY KEY (ShipperID, TrackingNum, CustomerID),
 	FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
 	FOREIGN KEY (TrackingNum) REFERENCES Shipping_Info(TrackingNum),
@@ -239,13 +239,13 @@ CREATE TRIGGER add_sellers AFTER INSERT ON Seller
 	END$$
 
 CREATE TRIGGER add_items_method_type AFTER INSERT ON Item
-    FOR EACH ROW BEGIN
+	FOR EACH ROW BEGIN
 		IF NEW.Method = 0 THEN
 			INSERT INTO Sell_Item(ItemID) VALUES (NEW.ItemID);
 		ELSEIF NEW.Method = 1 THEN
 			INSERT INTO Bid_Item(ItemID) VALUES (NEW.ItemID);
 		END IF;
-        IF NEW.Type = 0 THEN
+		IF NEW.Type = 0 THEN
 			INSERT INTO Electronics(ItemID) VALUES (NEW.ItemID);
 		ELSEIF NEW.Type = 1 THEN
 			INSERT INTO Clothes(ItemID) VALUES (NEW.ItemID);
@@ -255,10 +255,10 @@ CREATE TRIGGER add_items_method_type AFTER INSERT ON Item
 	END$$
 
 CREATE TRIGGER update_bid AFTER INSERT ON Bid
-    FOR EACH ROW BEGIN
+	FOR EACH ROW BEGIN
 		UPDATE Item
-        SET Item.Price = NEW.Price
-        WHERE Item.ItemID = NEW.ItemID;
+		SET Item.Price = NEW.Price
+		WHERE Item.ItemID = NEW.ItemID;
 	END$$
 DELIMITER ;
 
