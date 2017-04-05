@@ -320,7 +320,7 @@ VALUES
 ('Amazon Echo', 'Talk to Alexa anywhere', 179.99, 0, 0),
 ('Fire HD Tablet', 'HD Display', 36.97, 0, 0),
 ('Kindle Paperwhite', 'Black', 119.99, 0, 0),
-('Roku Express', 'Black', 29.00, 0, 0),
+('Keurig K55 Single Serve Programmable K-Cup Pod Coffee Maker', 'Black', 94.43, 0, 0),
 
 /*Top
 Adult*/
