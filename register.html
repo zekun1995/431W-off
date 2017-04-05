@@ -120,21 +120,7 @@ var _pass;
 /**      *Check user name        */      
 String.prototype.Trim = function() {      
 return this.replace(/(^\s*)|(\s*$)/g, ""); }      //---------------------------------------------------------------------------     
-function check_username(){      
-	var username;       
-	username = document.getElementById('username').value;username = username.Trim();          
-	if (username == "") {        
-		document.getElementById('username_error').innerHTML = "Email";            
-		} 
-		else {         
-			if (/^\w{6,20}$/.test(username)) {          	
-				document.getElementById('username_error').innerHTML = "";         
-			} 
-			else {          
-					document.getElementById('username_error').innerHTML = "6 ~ 20 character【0-9】【a-z-A-Z】";         
-			}     
-		 }    
-	}   
+ 
 		  /**      *check password    */      //---------------------------------------------------------------------------     
 		  function check_pass(){      
 		  var pass;       
@@ -228,12 +214,12 @@ function check_rpass(){
 	}
 			                //---------------------------------------------------------------------------     
 function regist(){       
-	var username_error=document.getElementById('username_error').innerHTML;      
+	      
 	var pass_error=document.getElementById('pass_error').innerHTML;    var rpass_error=document.getElementById('rpass_error').innerHTML;    var email_error=document.getElementById('email_error').innerHTML;    var iphone_error=document.getElementById('iphone_error').innerHTML;    
 	var age_error=document.getElementById('age_error').innerHTML; 
 	var gender_error=document.getElementById('gender_error').innerHTML;
 	var income_error=document.getElementById('income_error').innerHTML;
-	var username=document.getElementById('username').value;      
+	     
 	var pass=document.getElementById('pass').value;      
 	var rpass=document.getElementById('rpass').value;      
 	var email=document.getElementById('email').value;   
@@ -241,7 +227,7 @@ function regist(){
 	var age=document.getElementById('age').value;
 	var gender=document.getElementById('gender').value;
 	var income=document.getElementById('income').value;
-	 if ((username_error == "" && pass_error == "" && rpass_error == ""&& iphone_error == "" && email_error == ""&& age_error == ""&& gender_error == ""&& income_error == "")&&(username != "" && pass != "" && rpass != "" && email != ""&& age!=""&& gender!=""&& income!="")) {       
+	 if (( pass_error == "" && rpass_error == ""&& iphone_error == "" && email_error == ""&& age_error == ""&& gender_error == ""&& income_error == "")&&( pass != "" && rpass != "" && email != ""&& age!=""&& gender!=""&& income!="")) {       
 	 alert ("Congratulation,you have successfully registed!");       
 	 } 
 	 else {         
