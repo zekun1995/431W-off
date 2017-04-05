@@ -139,13 +139,6 @@ CREATE TABLE Cus_has (
 	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 		ON DELETE CASCADE
 );
-CREATE TABLE Cus_Earns (
-	CustomerID INTEGER NOT NULL,
-	PointsID INTEGER NOT NULL,
-	PRIMARY KEY (CustomerID, PointsID),
-	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
-	FOREIGN KEY (PointsID) REFERENCES Points(PointsID)
-);
 CREATE TABLE Cus_Place_Ord (
 	OrderID INTEGER NOT NULL,
 	CustomerID INTEGER NOT NULL,
@@ -159,6 +152,13 @@ CREATE TABLE Cus_Place_Bid (
 	PRIMARY KEY (BidID, CustomerID),
 	FOREIGN KEY (BidID) REFERENCES Bid(BidID),
 	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
+CREATE TABLE Cus_Earns_Points (
+	CustomerID INTEGER NOT NULL,
+	PointsID INTEGER NOT NULL,
+	PRIMARY KEY (CustomerID, PointsID),
+	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+	FOREIGN KEY (PointsID) REFERENCES Points(PointsID)
 );
 CREATE TABLE Seller_Supplied (
 	SellerID INTEGER NOT NULL,
