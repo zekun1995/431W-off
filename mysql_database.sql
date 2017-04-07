@@ -5,7 +5,10 @@ DROP DATABASE tester;
 CREATE DATABASE tester;
 USE tester;
 /*Problems
+ISA RELATIONSHIP
+Bid item end time needs to be something else
 add a year to points expired time
+sample data needs to be corrected
 */
 
 /*Main Tables*/ 
@@ -27,17 +30,16 @@ CREATE TABLE Seller (
 	Address VARCHAR (50),
 	Phone CHAR(12),
 	Revenue REAL,
-	Type INTEGER NOT NULL, /* can be 0 or 1, 0 is indi 1 is supplier*/
+	Type INTEGER NOT NULL, /*0 is indi 1 is supplier*/
 	PRIMARY KEY (SellerID)
 );
 CREATE TABLE Item (
 	ItemID INTEGER AUTO_INCREMENT NOT NULL,
 	Name VARCHAR(255) NOT NULL,
 	Info VARCHAR (255),
-	Price REAL NOT NULL,
-	Method INTEGER NOT NULL, /* 0 is sell, 1 is bid*/
-	Type INTEGER NOT NULL, /*0 electronics, 1 clothes, 2 books*/
-	PRIMARY KEY (ItemID)
+	Sell_Method INTEGER NOT NULL, /* 0 is sell, 1 is bid*/
+	Categorie INTEGER NOT NULL, /*0 books, 1 Technology, 2 Apparel*/
+	PRIMARY KEY (ItemID, Name)
 );
 CREATE TABLE Shipper (
 	ShipperID INTEGER AUTO_INCREMENT NOT NULL,
@@ -65,30 +67,16 @@ CREATE TABLE Supplier (
 CREATE TABLE Bid_Item (
 	ItemID INTEGER NOT NULL,
 	Start_Time TIMESTAMP NOT NULL,
-	End_Time TIMESTAMP NOT NULL, /*need to add a year to this*/
+	End_Time TIMESTAMP NOT NULL,
+	Start_Price REAL,
 	Reserve_Price REAL,
 	Status VARCHAR(30),
 	PRIMARY KEY (ItemID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+		ON DELETE CASCADE
 );
 CREATE TABLE Sell_Item (
 	ItemID INTEGER NOT NULL,
-	PRIMARY KEY (ItemID),
-	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
-);
-CREATE TABLE Electronics (
-	ItemID INTEGER NOT NULL,
-	Categories VARCHAR(30),
-	PRIMARY KEY (ItemID),
-	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
-		ON DELETE CASCADE
-);
-CREATE TABLE Clothes (
-	ItemID INTEGER NOT NULL,
-	Gender VARCHAR(1),
-	Categories VARCHAR(30),
-	Age_Group VARCHAR(10),
-	Size CHAR (2),
 	PRIMARY KEY (ItemID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 		ON DELETE CASCADE
@@ -101,16 +89,30 @@ CREATE TABLE Books (
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 		ON DELETE CASCADE
 );
+CREATE TABLE Technology (
+	ItemID INTEGER NOT NULL,
+	Categories VARCHAR(30),
+	PRIMARY KEY (ItemID),
+	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+		ON DELETE CASCADE
+);
+CREATE TABLE Apparel (
+	ItemID INTEGER NOT NULL,
+	Gender VARCHAR(1),
+	Categories VARCHAR(30),
+	Size CHAR (2),
+	PRIMARY KEY (ItemID),
+	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+		ON DELETE CASCADE
+);
 
-/*"Action Tables"*/
+/*Transaction Tables*/
 CREATE TABLE Orders (
 	OrderID INTEGER AUTO_INCREMENT NOT NULL,
-	ItemID INTEGER NOT NULL,
 	Qty INTEGER NOT NULL,
 	Order_Date TIMESTAMP NOT NULL,
 	Ship_Date TIMESTAMP,
-	PRIMARY KEY (OrderID),
-	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+	PRIMARY KEY (OrderID)
 );
 CREATE TABLE Bid (
 	BidID INTEGER AUTO_INCREMENT NOT NULL,
@@ -121,9 +123,11 @@ CREATE TABLE Bid (
 CREATE TABLE Points (
 	PointsID INTEGER AUTO_INCREMENT NOT NULL,
 	Quantity INTEGER NOT NULL,
-	expiredTime TIMESTAMP,
+	EarnedTime TIMESTAMP,
 	PRIMARY KEY (PointsID)
 );
+
+/*WHAT IS THISSSSSSS*/
 CREATE TABLE Shipping_Info (
 	TrackingNum VARCHAR(20) NOT NULL,
 	Distribution_Date DATE,
@@ -131,7 +135,7 @@ CREATE TABLE Shipping_Info (
 );
 
 /*Relationships*/
-CREATE TABLE Cus_has (
+CREATE TABLE Cus_has_Card (
 	CustomerID INTEGER NOT NULL,
 	Card_Num CHAR(16),
 	Address VARCHAR(50),
@@ -168,13 +172,13 @@ CREATE TABLE Seller_Supplied (
 	FOREIGN KEY (SellerID) REFERENCES Seller(SellerID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
-CREATE TABLE Ind_Seller_Accept (
+/*CREATE TABLE Ind_Seller_Accept (
 	SellerID INTEGER NOT NULL,
 	BidID INTEGER NOT NULL,
 	PRIMARY KEY (SellerID, BidID),
 	FOREIGN KEY (SellerID) REFERENCES Seller(SellerID),
 	FOREIGN KEY (BidID) REFERENCES Bid(BidID)
-);
+);*/
 CREATE TABLE Order_Contains (
 	OrderID INTEGER NOT NULL,
 	ItemID INTEGER NOT NULL,
@@ -182,7 +186,7 @@ CREATE TABLE Order_Contains (
 	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
-CREATE TABLE Shipped (
+/*CREATE TABLE Shipped (
 	ShipperID INTEGER NOT NULL,
 	TrackingNum VARCHAR(20),
 	ItemID INTEGER NOT NULL,
@@ -199,7 +203,7 @@ CREATE TABLE Deliver (
 	FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
 	FOREIGN KEY (TrackingNum) REFERENCES Shipping_Info(TrackingNum),
 	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
-);
+);*/
 
 /*Dependencies*/
 CREATE TABLE Points_Convert (
@@ -240,16 +244,16 @@ CREATE TRIGGER add_sellers AFTER INSERT ON Seller
 
 CREATE TRIGGER add_items_method_type AFTER INSERT ON Item
 	FOR EACH ROW BEGIN
-		IF NEW.Method = 0 THEN
+		IF NEW.Sell_Method = 0 THEN
 			INSERT INTO Sell_Item(ItemID) VALUES (NEW.ItemID);
-		ELSEIF NEW.Method = 1 THEN
+		ELSEIF NEW.Sell_Method = 1 THEN
 			INSERT INTO Bid_Item(ItemID) VALUES (NEW.ItemID);
 		END IF;
-		IF NEW.Type = 0 THEN
+		IF NEW.Categorie = 0 THEN
 			INSERT INTO Electronics(ItemID) VALUES (NEW.ItemID);
-		ELSEIF NEW.Type = 1 THEN
+		ELSEIF NEW.Categorie = 1 THEN
 			INSERT INTO Clothes(ItemID) VALUES (NEW.ItemID);
-		ELSEIF NEW.Type = 2 THEN
+		ELSEIF NEW.Categorie = 2 THEN
 			INSERT INTO Books(ItemID) VALUES (NEW.ItemID);
 		END IF;
 	END$$
@@ -308,7 +312,7 @@ VALUES ('Very Fast', 'very_fast@gmail.com', '814-312-4123'),
 ('Slow Snail', 'slow_snail@gmail.com', '814-312-8758'),
 ('Never Arrive', 'never_arrive@gmail.com', '814-312-7483');
 
-INSERT INTO Item (Name, Info, Price, Method, Type)
+INSERT INTO Item (Name, Info, Price, Sell_Method, Categorie)
 VALUES
 /*Tech*/
 ('Fire TV Stick with Alexa Voice Remote', 'Say it, Play it', 39.99, 1, 0),
