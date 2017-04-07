@@ -116,7 +116,6 @@ CREATE TABLE Orders (
 );
 CREATE TABLE Bid (
 	BidID INTEGER AUTO_INCREMENT NOT NULL,
-	ItemID INTEGER NOT NULL,
 	Price INTEGER NOT NULL,
 	PRIMARY KEY (BidID)
 );
@@ -125,13 +124,6 @@ CREATE TABLE Points (
 	Quantity INTEGER NOT NULL,
 	EarnedTime TIMESTAMP,
 	PRIMARY KEY (PointsID)
-);
-
-/*WHAT IS THISSSSSSS*/
-CREATE TABLE Shipping_Info (
-	TrackingNum VARCHAR(20) NOT NULL,
-	Distribution_Date DATE,
-	PRIMARY KEY (TrackingNum)
 );
 
 /*Relationships*/
@@ -172,13 +164,6 @@ CREATE TABLE Seller_Supplied (
 	FOREIGN KEY (SellerID) REFERENCES Seller(SellerID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
-/*CREATE TABLE Ind_Seller_Accept (
-	SellerID INTEGER NOT NULL,
-	BidID INTEGER NOT NULL,
-	PRIMARY KEY (SellerID, BidID),
-	FOREIGN KEY (SellerID) REFERENCES Seller(SellerID),
-	FOREIGN KEY (BidID) REFERENCES Bid(BidID)
-);*/
 CREATE TABLE Order_Contains (
 	OrderID INTEGER NOT NULL,
 	ItemID INTEGER NOT NULL,
@@ -186,27 +171,16 @@ CREATE TABLE Order_Contains (
 	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
-/*CREATE TABLE Shipped (
-	ShipperID INTEGER NOT NULL,
-	TrackingNum VARCHAR(20),
+CREATE TABLE Bid_Contains (
+	BidID INTEGER NOT NULL,
 	ItemID INTEGER NOT NULL,
-	PRIMARY KEY (TrackingNum),
-	FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
-	FOREIGN KEY (TrackingNum) REFERENCES Shipping_Info(TrackingNum),
+	PRIMARY KEY (BidID, ItemID),
+	FOREIGN KEY (BidID) REFERENCES Bid(BidID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
-CREATE TABLE Deliver (
-	ShipperID INTEGER NOT NULL,
-	TrackingNum VARCHAR(20) NOT NULL,
-	CustomerID INTEGER NOT NULL,
-	PRIMARY KEY (ShipperID, TrackingNum, CustomerID),
-	FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
-	FOREIGN KEY (TrackingNum) REFERENCES Shipping_Info(TrackingNum),
-	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
-);*/
 
 /*Dependencies*/
-CREATE TABLE Points_Convert (
+/*CREATE TABLE Points_Convert (
 	PointsID INTEGER NOT NULL,
 	issuedTime TIMESTAMP,
 	PRIMARY KEY (PointsID),
@@ -229,7 +203,39 @@ CREATE TABLE CorrespondTo (
 	PRIMARY KEY (BidID),
 	FOREIGN KEY (BidID) REFERENCES Bid(BidID)
 		ON DELETE CASCADE
-);
+);*/
+
+/*WHAT*/
+/*CREATE TABLE Shipping_Info (
+	TrackingNum VARCHAR(20) NOT NULL,
+	Distribution_Date DATE,
+	PRIMARY KEY (TrackingNum)
+);*/
+/*CREATE TABLE Ind_Seller_Accept (
+	SellerID INTEGER NOT NULL,
+	BidID INTEGER NOT NULL,
+	PRIMARY KEY (SellerID, BidID),
+	FOREIGN KEY (SellerID) REFERENCES Seller(SellerID),
+	FOREIGN KEY (BidID) REFERENCES Bid(BidID)
+);*/
+/*CREATE TABLE Shipped (
+	ShipperID INTEGER NOT NULL,
+	TrackingNum VARCHAR(20),
+	ItemID INTEGER NOT NULL,
+	PRIMARY KEY (TrackingNum),
+	FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
+	FOREIGN KEY (TrackingNum) REFERENCES Shipping_Info(TrackingNum),
+	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
+);*/
+/*CREATE TABLE Deliver (
+	ShipperID INTEGER NOT NULL,
+	TrackingNum VARCHAR(20) NOT NULL,
+	CustomerID INTEGER NOT NULL,
+	PRIMARY KEY (ShipperID, TrackingNum, CustomerID),
+	FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
+	FOREIGN KEY (TrackingNum) REFERENCES Shipping_Info(TrackingNum),
+	FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);*/
 
 /*Triggers*/
 DELIMITER $$
@@ -256,13 +262,6 @@ CREATE TRIGGER add_items_method_type AFTER INSERT ON Item
 		ELSEIF NEW.Categorie = 2 THEN
 			INSERT INTO Books(ItemID) VALUES (NEW.ItemID);
 		END IF;
-	END$$
-
-CREATE TRIGGER update_bid AFTER INSERT ON Bid
-	FOR EACH ROW BEGIN
-		UPDATE Item
-		SET Item.Price = NEW.Price
-		WHERE Item.ItemID = NEW.ItemID;
 	END$$
 DELIMITER ;
 
