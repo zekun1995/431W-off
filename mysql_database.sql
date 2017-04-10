@@ -193,6 +193,7 @@ CREATE TABLE Shipped_by (
 CREATE TABLE Order_has_ShippingInfo (
 	OrderID INTEGER NOT NULL,
 	TrackingNum VARCHAR(20) NOT NULL,
+	Shipping_Method VARCHAR(20) NOT NULL,
 	Distribution_Date TIMESTAMP,
 	PRIMARY KEY (OrderID, TrackingNum),
 	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
