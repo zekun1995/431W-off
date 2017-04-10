@@ -125,6 +125,11 @@ CREATE TABLE Points (
 	EarnedTime TIMESTAMP,
 	PRIMARY KEY (PointsID)
 );
+CREATE TABLE Returns (
+	ReturnID INTEGER AUTO_INCREMENT NOT NULL,
+	Return_Date TIMESTAMP NOT NULL,
+	PRIMARY KEY (ReturnID)
+);
 
 /*Relationships*/
 CREATE TABLE Cus_has_Card (
@@ -178,14 +183,27 @@ CREATE TABLE Bid_Contains (
 	FOREIGN KEY (BidID) REFERENCES Bid(BidID),
 	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
 );
-
-/*Dependencies*/
-/*CREATE TABLE Points_Convert (
-	PointsID INTEGER NOT NULL,
-	issuedTime TIMESTAMP,
-	PRIMARY KEY (PointsID),
-	FOREIGN KEY (PointsID) REFERENCES Points(PointsID)
+CREATE TABLE Shipped_by (
+	ShipperID INTEGER NOT NULL,
+	OrderID INTEGER NOT NULL,
+	PRIMARY KEY (ShipperID, OrderID),
+	FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
+	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
+CREATE TABLE Order_has_ShippingInfo (
+	OrderID INTEGER NOT NULL,
+	TrackingNum VARCHAR(20) NOT NULL,
+	Distribution_Date TIMESTAMP,
+	PRIMARY KEY (OrderID, TrackingNum),
+	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
 		ON DELETE CASCADE
+);
+CREATE TABLE Returning_Order (
+	ReturnID INTEGER NOT NULL,
+	OrderID INTEGER NOT NULL,
+	PRIMARY KEY (ReturnID, OrderID),
+	FOREIGN KEY (ReturnID) REFERENCES Returns(ReturnID),
+	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
 );
 CREATE TABLE Gives_Feedback (
 	FeebackID INTEGER AUTO_INCREMENT NOT NULL,
@@ -196,7 +214,15 @@ CREATE TABLE Gives_Feedback (
 	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
 		ON DELETE CASCADE
 );
-CREATE TABLE CorrespondTo (
+
+/*CREATE TABLE Points_Convert (
+	PointsID INTEGER NOT NULL,
+	issuedTime TIMESTAMP,
+	PRIMARY KEY (PointsID),
+	FOREIGN KEY (PointsID) REFERENCES Points(PointsID)
+		ON DELETE CASCADE
+);*/
+/*CREATE TABLE CorrespondTo (
 	BidID INTEGER NOT NULL,
 	WinnerEmail CHAR (50) NOT NULL,
 	Minimum_Price REAL NOT NULL,
@@ -206,11 +232,6 @@ CREATE TABLE CorrespondTo (
 );*/
 
 /*WHAT*/
-/*CREATE TABLE Shipping_Info (
-	TrackingNum VARCHAR(20) NOT NULL,
-	Distribution_Date DATE,
-	PRIMARY KEY (TrackingNum)
-);*/
 /*CREATE TABLE Ind_Seller_Accept (
 	SellerID INTEGER NOT NULL,
 	BidID INTEGER NOT NULL,
@@ -218,15 +239,7 @@ CREATE TABLE CorrespondTo (
 	FOREIGN KEY (SellerID) REFERENCES Seller(SellerID),
 	FOREIGN KEY (BidID) REFERENCES Bid(BidID)
 );*/
-/*CREATE TABLE Shipped (
-	ShipperID INTEGER NOT NULL,
-	TrackingNum VARCHAR(20),
-	ItemID INTEGER NOT NULL,
-	PRIMARY KEY (TrackingNum),
-	FOREIGN KEY (ShipperID) REFERENCES Shipper(ShipperID),
-	FOREIGN KEY (TrackingNum) REFERENCES Shipping_Info(TrackingNum),
-	FOREIGN KEY (ItemID) REFERENCES Item(ItemID)
-);*/
+
 /*CREATE TABLE Deliver (
 	ShipperID INTEGER NOT NULL,
 	TrackingNum VARCHAR(20) NOT NULL,
