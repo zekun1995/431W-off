@@ -39,6 +39,7 @@ CREATE TABLE Item (
 	Info VARCHAR (255),
 	Sell_Method INTEGER NOT NULL, /* 0 is sell, 1 is bid*/
 	Categorie INTEGER NOT NULL, /*0 books, 1 Technology, 2 Apparel*/
+    Picture_Link VARCHAR(255),
 	PRIMARY KEY (ItemID, Name)
 );
 CREATE TABLE Shipper (
@@ -193,7 +194,6 @@ CREATE TABLE Shipped_by (
 CREATE TABLE Order_has_ShippingInfo (
 	OrderID INTEGER NOT NULL,
 	TrackingNum VARCHAR(20) NOT NULL,
-	Shipping_Method VARCHAR(20) NOT NULL,
 	Distribution_Date TIMESTAMP,
 	PRIMARY KEY (OrderID, TrackingNum),
 	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
@@ -270,11 +270,11 @@ CREATE TRIGGER add_items_method_type AFTER INSERT ON Item
 			INSERT INTO Bid_Item(ItemID) VALUES (NEW.ItemID);
 		END IF;
 		IF NEW.Categorie = 0 THEN
-			INSERT INTO Electronics(ItemID) VALUES (NEW.ItemID);
-		ELSEIF NEW.Categorie = 1 THEN
-			INSERT INTO Clothes(ItemID) VALUES (NEW.ItemID);
-		ELSEIF NEW.Categorie = 2 THEN
 			INSERT INTO Books(ItemID) VALUES (NEW.ItemID);
+		ELSEIF NEW.Categorie = 1 THEN
+			INSERT INTO Technology(ItemID) VALUES (NEW.ItemID);
+		ELSEIF NEW.Categorie = 2 THEN
+			INSERT INTO Apparel(ItemID) VALUES (NEW.ItemID);
 		END IF;
 	END$$
 DELIMITER ;
@@ -325,9 +325,30 @@ VALUES ('Very Fast', 'very_fast@gmail.com', '814-312-4123'),
 ('Slow Snail', 'slow_snail@gmail.com', '814-312-8758'),
 ('Never Arrive', 'never_arrive@gmail.com', '814-312-7483');
 
-INSERT INTO Item (Name, Info, Price, Sell_Method, Categorie)
+INSERT INTO Item (Name, Info, Sell_Method, Categorie, Picture_Link)
 VALUES
+/*Books*/
+('When Breath Becomes Air', 'Paul Kalanithi', 0, 0, 'BookPics/WhenBreathBecomesAir.jpg'),
+('The Nightingale', 'Kristin Hannah', 1, 0, 'BookPics/TheNightingale.jpg'),
+('The Entrepreneur Mind', 'Kevin D. Johnson', 0, 0, 'BookPics/TheEntrepreneurMind.jpg'),
+('The Book Thief', 'Markus Zusak', 0, 0, 'BookPics/TheBookThief.jpg'),
+('Small Great Things', 'Jodi Picoult', 1, 0, 'BookPics/SmallGreatThings.jpg'),
+('Orphan Train', 'Christina Baker Kline', 0, 0, 'BookPics/OrphanTrain.jpg'),
 /*Tech*/
+('Fire TV Stick with Alexa Voice Remote', 'Say it, Play it',  1, 1, 'TechPics/FireTVStickwithAlexaVoiceRemote.jpg'),
+('Keurig K55 Single Serve Programmable K-Cup Pod Coffee Maker', 'Black', 0, 1, 'TechPics/Coffee.jpg'),
+('Kindle Paperwhite', 'Black', 0, 1, 'TechPics/Kindle.jpg'),
+('Fire Tablet', 'Best 7 Inches you will ever see', 0, 1, 'TechPics/FireHDTablet.jpg'),
+('Amazon Fire TV', 'Watch Anywhere', 0, 1, 'TechPics/AmazonFireTV.jpg'),
+/*Clothes*/
+('Womens Summer Cross Front Tops', 'Haola', 0, 2, 'ClothesPics/wCrossFrontTop.jpg'),
+('Ellos Womens Plus Size Cargo Capris', 'Ellos', 1, 2, 'ClothesPics/wPlusSizeCargoCapris.jpg'),
+('iEFiEL Summer Wedding Junior Bridesmaid', 'iefiel', 0, 2, 'ClothesPics/wSummerWeddingDress.jpg');
+
+
+/*INSERT INTO Item (Name, Info, Price, Sell_Method, Categorie)
+VALUES
+/*Tech
 ('Fire TV Stick with Alexa Voice Remote', 'Say it, Play it', 39.99, 1, 0),
 ('Echo Dot (2nd Generation)', 'Add Alexa to any room', 49.99, 0, 0),
 ('Fujifilm INSTAX Mini Instant Film Twin Pack', 'Fujifilm', 12.49, 0, 0),
@@ -340,7 +361,7 @@ VALUES
 ('Keurig K55 Single Serve Programmable K-Cup Pod Coffee Maker', 'Black', 94.43, 0, 0),
 
 /*Top
-Adult*/
+Adult
 ('Womens Summer Cross Front Tops', 'Haola', 14.9, 0, 1),
 ('Womens Casual Irregular Hem T-Shirt', 'Haola', 14.9, 1, 1),
 ('Womens Long Sleeve Tops Round Neck', 'Haola', 15.8, 0, 1),
@@ -351,7 +372,7 @@ Adult*/
 ('Womens O Neck Feather Print Shirt', 'Lovaru', 10.55, 1, 1),
 ('Womens Casual Cold Shoulder Tops', 'Lovaru', 10, 0, 1),
 
-/*Junior*/ 
+/*Junior
 ('Soffe Big Girls Colorblock Hoody', 'Duchini', 8.38, 0, 1),
 ('Disney Girls Minnie Hoodie with Bow and Ear', 'Disney', 19.24, 1, 1),
 ('iEFiEL Summer Wedding Junior Bridesmaid', 'iefiel' , 11.95, 0, 1),
@@ -362,7 +383,7 @@ Adult*/
 ('Emoji Basic Vest For Girls', 'ABCHIC', 7.0, 1, 1),
 ('iEFiEL Big Girls Youth Peace Signs', 'iEFiEL', 8.89, 0, 1),
 
-/*Senior*/
+/*Senior
 ('Adaptive T Shirt For Women', 'Silvet', 25, 1, 1),
 ('Alfred Dunner Biadere Knit Tee', 'Alfred', 34.5, 0, 1),
 ('The Senior Shop Womens Cotton Camisole', 'Indera', 7.99, 1, 1),
@@ -374,7 +395,7 @@ Adult*/
 ('Adaptive Blouses For Women', 'Silvert', 34.39, 0, 1),
 ('Cotton Adaptive Snap Back Blouse', 'Silvert',44.62, 0, 1),
 
-/*Bottom adult */
+/*Bottom adult 
 ('CYZ Womens Basic Stretch Cotton Knit' , 'CYZ', 12.99, 0, 1),
 ('Zoozie LA Womens Bell Bottoms', 'Zoozie', 35.99, 0, 1),
 ('Missy Womens 100% Narrow bottom', 'alki', 21.99, 0, 1),
@@ -386,7 +407,7 @@ Adult*/
 ('Womens Plus Size Safari Jogger Pants', 'Romans', 34.77, 0, 1),
 ('Ellos Womens Plus Size Cargo Capris', 'Ellos', 34.68, 1, 1),
 
-/*Bottom junior*/
+/*Bottom junior
 ('Nautica Girls Uniform Bootcut Twill Pant', 'NATICUA', 19.93, 1, 1),
 ('Nautica Girls Uniform Stretch Interlock Leggi', 'NATIcua', 10.83, 0, 1),
 ('Coolibar UPF 50+ Girls Beach Board Short', 'Collobar ', 14.99, 1, 1),
@@ -398,7 +419,7 @@ Adult*/
 ('Meru Boys and Girls Unisex Solid Color Pajamas', 'Meru', 8.99, 0, 1),
 ('Levis Baby Girls Haley May Super Skinny P', 'Levis', 6.69, 1, 1),
 
-/*Shoes woman*/
+/*Shoes woman
 ('Balamasa Womens Open Toe High Heels Sandals', 'balamasa', 27.91, 1, 1),
 ('1TO9 Ladies Anti-Skidding Bottom Wheeled', '1TO9', 43.99, 0, 1),
 ('1TO9 Womens Color Matching Thick Bottom Heel European Style Boots', '1TO9', 45.9, 0, 1),
@@ -410,7 +431,7 @@ Adult*/
 ('Jessica Simpson Womens Libra Pointed Toe', 'Jessica Simpson', 24.56, 0, 1),
 ('Jessica Simpson', 'CK', 80.97, 0, 1),
 
-/*junior*/
+/*junior
 ('PUMA Steeple Glitz Glam V Kids Sneaker', 'PUMA', 22.96, 1, 1),
 ('PUMA Steeple Glitz Glam V Kids Sneaker', 'Adidas', 37.92, 0, 1),
 ('New Balance Kids KL574 Sneaker', 'New Balance', 26.74, 1, 1),
@@ -422,7 +443,7 @@ Adult*/
 ('adidas NEO Daily K Sneaker', 'Adidas', 24.95, 1, 1),
 
 /*TOP
-Adult*/
+Adult
 ('Nike Dry Knit', 'Nike', 22.8, 1, 1),
 ('Nike Pro Warm', 'Nike', 56.7, 0, 1),
 ('Nike Breath', 'Nike', 27.5, 0, 1),
@@ -433,7 +454,7 @@ Adult*/
 ('Hurley Staple', 'Nike', 10.12, 0, 1),
 ('Jordan 23', 'Nike', 18.88, 0, 1),
 
-/*Junior*/
+/*Junior
 ('Nike Dry LeBron Pixel', 'Nike', 8.38, 0, 1),
 ('Nike shoebox', 'Nike', 19.24, 0, 1),
 ('Nike SB', 'Nike', 11.95, 1, 1),
@@ -444,7 +465,7 @@ Adult*/
 ('Nike Dry Element', 'Nike', 7.0, 1, 1),
 ('Hurley Staple', 'Nike' ,8.89, 0, 1),
 
-/*Senior*/
+/*Senior
 ('Nike Dry LeBron Pixel', 'Nike', 25, 0, 1),
 ('Nike Dry Element', 'Nike',34.5, 0, 1),
 ('Nike shoebox', 'Nike',47.99, 0, 1),
@@ -457,7 +478,7 @@ Adult*/
 ('Nike shoebox', 'Nike',44.62, 0, 1),
 
 /*Bottom 
-Adult*/
+Adult
 ('Nike Dry Knit', 'Nike',22.8, 0, 1),
 ('Nike Pro Warm', 'Nike',56.7,0, 1),
 ('Nike Breath', 'Nike',27.5, 0, 1),
@@ -468,7 +489,7 @@ Adult*/
 ('Hurley Staple', 'Nike', 10.12, 0, 1),
 ('Jordan 23', 'Nike', 18.88, 0, 1),
 
-/*Junior*/
+/*Junior
 ('Nike Dry LeBron Pixel', 'Nike', 8.38, 0, 1),
 ('Nike shoebox', 'Nike', 19.24, 0, 1),
 ('Nike SB', 'Nike', 11.95, 0, 1),
@@ -479,7 +500,7 @@ Adult*/
 ('Nike Dry Element', 'Nike', 7.0, 0, 1),
 ('Hurley Staple', 'Nike' ,8.89, 0, 1),
 
-/*Senior*/
+/*Senior
 ('Nike Dry LeBron Pixel', 'Nike', 25.13, 0, 1),
 ('Nike Dry Element', 'Nike',324.5, 0, 1),
 ('Nike shoebox', 'Nike',473.99, 0, 1),
@@ -492,7 +513,7 @@ Adult*/
 ('Nike shoebox', 'Nike',44.62, 0, 1),
 
 /*Shoes
-Adult*/
+Adult
 ('Stan Smith Boost Shoes', 'Adidas',142.9, 0, 1),
 ('Superstar', 'Adidas', 124.9, 0, 1),
 ('Gazelle', 'Adidas', 105.8, 0, 1),
@@ -503,7 +524,7 @@ Adult*/
 ('Gazelle' , 'Adidas', 110.55, 1, 1),
 ('Superstar', 'Adidas', 180, 0, 1),
 
-/*Junior*/
+/*Junior
 ('Stan Smith Boost Shoes', 'Adidas',142.9, 0, 1),
 ('Superstar', 'Adidas',124.9, 1, 1),
 ('Gazelle', 'Adidas',105.8, 0, 1),
@@ -514,7 +535,7 @@ Adult*/
 ('Gazelle' , 'Adidas', 110.55, 1, 1),
 ('Superstar', 'Adidas', 180, 0, 1),
 
-/*Senior*/
+/*Senior
 ('Stan Smith Boost Shoes', 'Adidas', 72.9, 0, 1),
 ('Superstar', 'Adidas', 84.9, 1, 1),
 ('Gazelle', 'Adidas', 105.8, 0, 1),
@@ -525,7 +546,7 @@ Adult*/
 ('Gazelle' , 'Adidas', 110.55, 0, 1),
 ('Superstar', 'Adidas', 180, 0, 1),
 
-/*books*/
+/*books
 ('When Breath Becomes Air', 'Paul Kalanithi', 28, 0, 1),
 ('The Couple Next Door', 'Shari Lapena', 25, 1, 2),
 ('The Magnolia Story', 'Chip & Joanna Gaines', 24, 0, 2),
@@ -575,4 +596,5 @@ Adult*/
 ('Grown Up Digital: How the Net Generation is Changing Your World', 'Don Tapscott', 10, 0, 2),
 ('First, Break All the Rules', 'Marcus Buckingham', 5.5, 0, 2),
 ('Reinvent the Way You Make a Living, Do What You Love, and Create a New Future', 'Chris Draper', 5.5, 0, 2),
-('How the Net Generation is Changing Your World', 'Don Blank', 10, 0, 2);
+('How the Net Generation is Changing Your World', 'Don Blank', 10, 0, 2);*/
+
