@@ -1,0 +1,408 @@
+<html>
+<head>
+<title>Himalaya</title>
+<link href="../Sites/MHID_Project_2015 copy/style1.css" rel="stylesheet" type="text/css">
+<style>
+@import url("../Sites/MHID_Project_2015 copy/style1.css");
+ 
+body {
+    background:#eee;
+    margin:0;
+    padding:0;
+}
+.example {
+    background:#fff url(../images/tech.jpg);
+    /*width:770px;
+    height:570px;
+    border:1px #000 solid;*/
+    margin:20px auto;
+    padding:15px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+/* main menu styles */
+#nav,#nav ul {
+    background-image:url(../images/tr75.png);
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#nav {
+    height:41px;
+    padding-left:5px;
+    padding-top:5px;
+    position:relative;
+    z-index:2;
+}
+#nav ul {
+    left:-9999px;
+    position:absolute;
+    top:37px;
+    width:auto;
+}
+#nav ul ul {
+    left:-9999px;
+    position:absolute;
+    top:0;
+    width:auto;
+}
+#nav li {
+    float:left;
+    margin-right:5px;
+    position:relative;
+}
+#nav li a {
+	
+    background:#c1c1bf;
+    color:#000;
+    display:block;
+    float:left;
+    font-size:16px;
+    padding:8px 10px;
+    text-decoration:none;
+}
+#nav > li > a {
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    -o-border-radius:6px;
+    border-radius:6px;
+
+    overflow:hidden;
+}
+#nav li a.fly {
+	margin:0 auto; 
+    background:#c1c1bf url(../images/arrow.gif) no-repeat right center;
+    padding-right:15px;
+}
+#nav ul li {
+    margin:0;
+}
+#nav ul li a {
+    width:120px;
+}
+#nav ul li a.fly {
+    padding-right:10px;
+}
+
+/*hover styles*/
+#nav li:hover > a {
+	
+    background-color:#858180;
+    color:#fff;
+}
+
+/*focus styles*/
+    #nav li a:focus {
+    outline-width:0;
+}
+
+/*popups*/
+#nav li a:active + ul.dd,#nav li a:focus + ul.dd,#nav li ul.dd:hover {
+    left:0;
+}
+#nav ul.dd li a:active + ul,#nav ul.dd li a:focus + ul,#nav ul.dd li ul:hover {
+    left:140px;
+}
+
+.div1 {
+	background-color:#F8F8F8;
+	/*width:2;*/
+	margin: 10px 20px;
+	padding: 20px;
+	float: left;
+	
+}
+.div2 {
+	background-color:#F8F8F8;
+	/*width:2;*/
+	margin: 10px 20px;
+	padding: 15px;
+	float: left;
+	
+}
+
+</style>
+</head>
+<body>
+
+<?php
+$servername = "localhost:3306";
+$username = "root";
+$password = "lollipop";
+$dbname = "tester";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+<div class = "example">
+	<ul id = "nav">
+    	<li><a href="himalaya.html">Home</a></li>
+		<li><a class = "fly" href="#">Books</a>
+        	<ul class = "dd">
+            	<li><a href="Book1.html">Fiction</a></li>
+                <li><a href=" ">Non-Fiction</a></li>
+                <li><a href=" ">Science Fiction</a></li>
+                <li><a href=" ">Romance</a></li>
+                <li><a href=" ">Mystery</a></li>
+  			</ul>
+		</li>
+        <li><a class = "fly" href="#">Technology</a>
+        	<ul class = "dd">
+            	<li><a href=" ">Computer</a></li>
+                <li><a href=" ">Coffee Machine</a></li>
+                <li><a href=" ">Mobile Phone</a></li>
+                <li><a href=" ">Television</a></li>
+                <li><a href=" ">Kindle</a></li>
+  			</ul>
+		</li>
+        </li>
+        <li><a class = "fly" href="#">Clothes</a>
+        	<ul class = "dd">
+            	<li><a class = "fly" href="#">Men</a>
+                	<ul>
+                    	<li><a class = "fly" href="#">Top</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Bottom</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Shoes</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Kids</a></li>
+                        </ul>
+                    	</li>
+                    </ul>
+                </li>
+                <li><a class = "fly" href="#">Women</a>
+                	<ul>
+                    	<li><a class = "fly" href="#">Top</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Bottom</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Shoes</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Kids</a></li>
+                        </ul>
+                    	</li>
+                    </ul>
+                </li>
+  			</ul>
+		</li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+	</ul>
+
+
+<h1> Himalaya </h1>
+<h2> Ultimate trading hub for college students </h2>
+<p>Himalaya is a user-friendly website for colleges students to trade items. It includes
+the features from all the mainstream website.</p>
+
+<div class="div1">
+<a href="all.html" rel="All" type="Categories"> All </a><br>
+
+<?php
+$sql = "SELECT Name, Picture_Link FROM Item";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+     // output data of each row
+     while($row = mysqli_fetch_assoc($result)) {
+        $link = $row["Picture_Link"];
+        $name = $row["Name"];
+?>
+<div class="div2">
+<p><?php echo $name; ?></p>
+<img src="<?php echo $link; ?>" width="150" height="150"/>
+</div>
+<?php
+     }
+} else {
+     echo "0 results";
+}
+?>
+
+</div>
+
+<div class="div1">
+<a href="Book1.html " rel="Books" type="Categories"> Books </a><br>
+
+<?php
+$sql = "SELECT Name, Picture_Link FROM Item, Books WHERE Item.ItemID = Books.ItemID";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+     // output data of each row
+     while($row = mysqli_fetch_assoc($result)) {
+        $link = $row["Picture_Link"];
+        $name = $row["Name"];
+?>
+<div class="div2">
+<p><?php echo $name; ?></p>
+<img src="<?php echo $link; ?>" width="150" height="150"/>
+</div>
+<?php
+     }
+} else {
+     echo "0 results";
+}
+?>
+
+	<!--div class="div2">
+	<img src="The Nightingale.jpg" width="150" height="150"> <br>
+    <p>The Nightingale</p>
+    <p>Kristin Hannah</p>
+    <p>$14.00</p>
+    </div>
+    <div class="div2">
+	<img src="Small Great Things.jpg" width="150" height="150" > <br>
+    <p>Small Great Things</p>
+    <p>Jodi Picoult</p>
+    <p>$10.00</p>
+    </div>
+    <div class="div2">
+	<img src="The Book Thief.jpg" width="150" height="150" > <br>
+    <p>The Book Thief</p>
+    <p>Markus Zusak</p>
+    <p>$30.00</p>
+    </div>
+    <div class="div2">
+	<img src="Orphan Train.jpg" width="150" height="150" > <br>
+    <p>Orphan Train</p>
+    <p>Christina Baker Kline</p>
+    <p>$9.90</p>
+    </div>
+    <div class="div2">
+	<img src="The Entrepreneur Mind.jpg" width="150" height="150" > <br>
+    <p>the Entrepreneur Mind</p>
+    <p>Kevin D. Johnson</p>
+    <p>$8.50</p>
+    </div-->
+</div>
+<div class="div1">
+<a href=" " rel="Technology" type="Categories"> Technology </a><br>
+
+<?php
+$sql = "SELECT Name, Picture_Link FROM Item, Technology WHERE Item.ItemID = Technology.ItemID";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+     // output data of each row
+     while($row = mysqli_fetch_assoc($result)) {
+        $link = $row["Picture_Link"];
+        $name = $row["Name"];
+?>
+<div class="div2">
+<p><?php echo $name; ?></p>
+<img src="<?php echo $link; ?>" width="150" height="150"/>
+</div>
+<?php
+     }
+} else {
+     echo "0 results";
+}
+?>
+
+	<!--div class="div2">
+	<img src="Fire TV Stick with Alexa Voice Remote.jpg" width="150" height="150" > <br>
+    <p>Fire TV Voice Remote</p>
+    <p>$39.99</p>
+    </div>
+    <div class="div2">
+	<img src="Amazon Fire TV.jpg" width="150" height="150" > <br>
+    <p>Amazon Fire TV</p>
+    <p>$89.99</p>
+    </div>
+    <div class="div2">
+	<img src="coffee.jpg" width="150" height="150" > <br>
+    <p>Keurig K55 Coffer Maker</p>
+    <p>$94.43</p>
+    </div>
+    <div class="div2">
+	<img src="kindle.jpg" width="150" height="150" > <br>
+    <p>Kindle Paperwhite</p>
+    <p>$119.99</p>
+    </div>
+    <div class="div2">
+	<img src="Fire HD tablet.jpg" width="150" height="150" > <br>
+    <p>Fire HD Tablet</p>
+    <p>$39.97</p>
+    </div-->
+</div>
+<div class="div1">
+<a href=" " rel="Clothes" type="Categories"> Clothes </a><br>
+
+<?php
+$sql = "SELECT Name, Picture_Link FROM Item, Apparel WHERE Item.ItemID = Apparel.ItemID";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+     // output data of each row
+     while($row = mysqli_fetch_assoc($result)) {
+        $link = $row["Picture_Link"];
+        $name = $row["Name"];
+?>
+<div class="div2">
+<p><?php echo $name; ?></p>
+<img src="<?php echo $link; ?>" width="150" height="150"/>
+</div>
+<?php
+     }
+} else {
+     echo "0 results";
+}
+?>
+
+	<!--div class="div2">
+	<img src="w cross front top.jpg" width="120" height="150" > <br>
+    <p>Cross Front Tops</p>
+    <p>Haola</p>
+    <p>$14.90</p>
+    </div>
+    <div class="div2">
+	<img src="Wj summer Wedding dress.jpg" width="120" height="150" > <br>
+    <p>Wedding Bridesmaid</p>
+    <p>iEFiEL</p>
+    <p>$11.95</p>
+    </div>
+    <div class="div2">
+	<img src="W Plus Size Cargo Capris.jpg" width="120" height="150" > <br>
+    <p>Cargo Capris</p>
+    <p>Ellos</p>
+    <p>$34.68</p>
+    </div-->
+    
+    
+</div>
+</div>
+</body>
+</html>
