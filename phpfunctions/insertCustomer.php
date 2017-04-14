@@ -14,13 +14,15 @@
 	
 	if (isset($_POST['submit']))
 	{
-		$email = $_POST['Email'];
-		$password = $_POST['Password'];
-		$name = $_POST['Name'];
-		$income = $_POST['Income'];
-		$age = $_POST['Age'];
-
-		$query = ("INSERT INTO customer (Email, Password, Name, Income, Age) VALUES ('$email', '$password', '$name', '$income', '$age')");
+		$email = $_POST['email'];
+		$password = $_POST['pass'];
+		$name = $_POST['name'];
+		$phone = $_POST['mobile'];
+		$income = $_POST['income'];
+		$age = $_POST['age'];
+		$gender = $_POST['gender'];
+		
+		$query = ("INSERT INTO customer (Email, Password, Name, Phone, Income, Age, Gender) VALUES ('$email', '$password', '$name', '$phone', '$income', '$age', '$gender')");
 
 		if(mysqli_query($conn, $query))
 		{
