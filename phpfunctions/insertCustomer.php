@@ -27,10 +27,12 @@
 		if(mysqli_query($conn, $query))
 		{
 			echo "<script>alert('INSERTED SUCCESSFULLY');</script>";
+			header("Location: ../himalaya.php");
 		}
 		else
 		{
 			echo "<script>alert('FAILED TO INSERT');</script>";
+			header("Location: ../register.html");
 		}
 	}
 
