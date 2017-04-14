@@ -404,5 +404,8 @@ if (mysqli_num_rows($result) > 0) {
     
 </div>
 </div>
+<?php
+mysql_close($conn);
+?>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html> 
 <head>     
-<title>Register！</title>    
+<title>Register!</title>    
 <style>          
 ul {list-style-type:none;}     
 ul li {margin-bottom:15px;}          
@@ -231,16 +231,15 @@ function regist(){
 	 alert ("Congratulation,you have successfully registed!");       
 	 } 
 	 else {         
-	 	alert ("Soory but registration has failed. Please check the information you have entered.");               
+	 	alert ("Sorry but registration has failed. Please check the information you have entered.");               
 	}                 
 	} 
 </script>  
 </head>
 <body>
-<form action="connection.php" method="post">
 <div class = "example">
-	<ul id = "nav">
-    	<li><a href="himalaya.html">Home</a></li>
+    <ul id = "nav">
+    	<li><a href="../himalaya.php">Home</a></li>
 		<li><a class = "fly" href="#">Books</a>
         	<ul class = "dd">
             	<li><a href=" ">Fiction</a></li>
@@ -320,37 +319,22 @@ function regist(){
 
 <p style="padding:20px 20px 30px 150px"><font style = "font-size:28pt">User Register</font></p>
 <ul>
-	
-	<li>
-    
-    <span class = "front_input">Email:</span><input id="email" type = "text" class = "_input" onblur="check_username()"/><span id = "Email_error" class = "after_input"></span></li>
-    <li>
-    <span class = "front_input">Password:</span><input id = "pass" type = "password" class="_input" onblur = "check_pass()"/><span id = "pass_error" class = "after_input"></span></li>
-    <li>
-    <span class = "front_input">Re-enter Password:</span><input id = "rpass" type = "password" class = "_input" onblur = "check_rpass()"/><span id = "rpass_error" class = "after_input"></span></li>
-    <li>
-    <span class = "front_input">Phone:</span><input id = "mobile" type = "text" class = "_input" onblur = "mobile()"/><span id="iphone_error" class = "after_input"></span></li>
-    <li>
-    <span class = "front_input">Age:</span><input id = "age" type = "text" class = "_input" onblur = "age()"/><span id="age_error" class = "after_input"></span></li>
-    <li>
-    <span class = "front_input">Gender:</span><input id = "gender" type = "text" class = "_input" onblur = "gender()"/><span id="gender_error" class = "after_input"></span></li><li>
-    <span class = "front_input">Annual Income:</span><input id = "income" type = "text" class = "_input" onblur = "income()"/><span id="income_error" class = "after_input"></span></li>
- 
- 
- <li>
- <span class = "front_input">Buyer</span><input type="checkbox" value="Buyer" checked="checked"/></li>
- <li>
- <span class = "front_input">Seller</span><input type="checkbox" value="Seller"/></li>
- 
-  
- <div style = "clear:both;margin-left:330px;margin-top:50px;">
- <button onclick = "regist()">Register</button>
- 
- </div>
- </ul>
- </div>
- </form>
+<form action="phpfunctions/insertCustomer.php" method="post">
+    <span class = "front_input">Email:</span><input name="email" type = "text" class = "_input" onblur="check_username()"/><span id = "Email_error" class = "after_input"></span><br>
+    <span class = "front_input">Password:</span><input name = "pass" type = "password" class="_input" onblur = "check_pass()"/><span id = "pass_error" class = "after_input"></span><br>
+    <span class = "front_input">Re-enter Password:</span><input name = "rpass" type = "password" class = "_input" onblur = "check_rpass()"/><span id = "rpass_error" class = "after_input"></span><br>
+    <span class = "front_input">Name:</span><input name="name" type = "text" class = "_input"/><br>
+    <span class = "front_input">Phone:</span><input name = "mobile" type = "text" class = "_input" onblur = "mobile()"/><span id="iphone_error" class = "after_input"></span><br>
+    <span class = "front_input">Age:</span><input name = "age" type = "text" class = "_input" onblur = "age()"/><span id="age_error" class = "after_input"></span><br>
+    <span class = "front_input">Gender:</span><input name = "gender" type = "text" class = "_input" onblur = "gender()"/><span id="gender_error" class = "after_input"></span><br>
+    <span class = "front_input">Annual Income:</span><input name = "income" type = "text" class = "_input" onblur = "income()"/><span id="income_error" class = "after_input"></span><br>
+    <span class = "front_input">Buyer</span><input type="radio" name="type" value="Buyer" checked="checked"><br>
+    <span class = "front_input">Seller</span><input type="radio" name="type" value="Seller">
+<div style = "clear:both;margin-left:330px;margin-top:50px;">
+<button type="submit" name="submit" onclick = "regist()">Register</button>
+</div>
+</form>
+</ul>
+</div>
 </body>
 </html>
-    
-     
