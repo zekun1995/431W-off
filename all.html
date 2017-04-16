@@ -1,0 +1,211 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>All</title>
+<style>
+@import url("../Sites/MHID_Project_2015 copy/style1.css");
+ 
+body {
+    background:#eee;
+    margin:0;
+    padding:0;
+}
+.example {
+    background:#FFF;
+    /*width:770px;
+    height:570px;
+    border:1px #000 solid;*/
+    /*margin:20px auto;
+    padding:15px;*/
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+/* main menu styles */
+#nav,#nav ul {
+    background-image:url(../images/tr75.png);
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#nav {
+    height:41px;
+    padding-left:5px;
+    padding-top:5px;
+    position:relative;
+    z-index:2;
+}
+#nav ul {
+    left:-9999px;
+    position:absolute;
+    top:37px;
+    width:auto;
+}
+#nav ul ul {
+    left:-9999px;
+    position:absolute;
+    top:0;
+    width:auto;
+}
+#nav li {
+    float:left;
+    margin-right:5px;
+    position:relative;
+}
+#nav li a {
+	
+    background:#c1c1bf;
+    color:#000;
+    display:block;
+    float:left;
+    font-size:16px;
+    padding:8px 10px;
+    text-decoration:none;
+}
+#nav > li > a {
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    -o-border-radius:6px;
+    border-radius:6px;
+
+    overflow:hidden;
+}
+#nav li a.fly {
+	margin:0 auto; 
+    background:#c1c1bf url(../images/arrow.gif) no-repeat right center;
+    padding-right:15px;
+}
+#nav ul li {
+    margin:0;
+}
+#nav ul li a {
+    width:120px;
+}
+#nav ul li a.fly {
+    padding-right:10px;
+}
+
+/*hover styles*/
+#nav li:hover > a {
+	
+    background-color:#858180;
+    color:#fff;
+}
+
+/*focus styles*/
+    #nav li a:focus {
+    outline-width:0;
+}
+
+/*popups*/
+#nav li a:active + ul.dd,#nav li a:focus + ul.dd,#nav li ul.dd:hover {
+    left:0;
+}
+#nav ul.dd li a:active + ul,#nav ul.dd li a:focus + ul,#nav ul.dd li ul:hover {
+    left:140px;
+}
+
+.div1 {
+	background-color:#F8F8F8;
+	width:200px;
+	margin: 10px 20px;
+	padding-bottom: 20px;
+	float: left;
+	
+}
+
+</style>
+</head>
+
+<body>
+<div class = "example">
+	<ul id = "nav">
+    	<li><a href="himalaya.html">Home</a></li>
+        <li><a href = "all.html">All</a></li>
+		<li><a class = "fly" href="#">Books</a>
+        	<ul class = "dd">
+            	<li><a href="Book1.html">Science Fiction</a></li>
+                <li><a href=" ">Romance</a></li>
+                <li><a href=" ">Mystery</a></li>
+                <li><a href=" ">Tech-Books</a></li>
+                <li><a href=" ">Drama</a></li>
+  			</ul>
+		</li>
+        <li><a class = "fly" href="#">Technology</a>
+        	<ul class = "dd">
+            	<li><a href=" ">TV & Home Theater</a></li>
+                <li><a href=" ">Computer & Tablet</a></li>
+                <li><a href=" ">Camera</a></li>
+                <li><a href=" ">Phone & Earphone</a></li>
+                <li><a href=" ">Appliances</a></li>
+  			</ul>
+		</li>
+        <li><a class = "fly" href="#">Apparel</a>
+        	<ul class = "dd">
+            	<li><a class = "fly" href="#">Men</a>
+                	<ul>
+                    	<li><a href="#">Top</a></li>
+                        <li><a href="#">Bottom</a></li>
+                        <li><a href="#">Shoes</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </li>
+                <li><a class = "fly" href="#">Women</a>
+                	<ul>
+                    	<li><a href="#">Top</a></li>
+                        <li><a href="#">Bottom</a></li>
+                        <li><a href="#">Shoes</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </li>
+  			</ul>
+		</li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+	
+    </ul>
+    <div class = "div1">
+    <font face="verdana">
+    <img src="books header.png" width="200" height="80" >
+    <ul><b>Books</b></ul>
+    <ul>Science Fiction</ul>
+    <ul>Romance</ul>
+    <ul>Mystery</ul>
+    <ul>Tech-Books</ul>
+    <ul>Drama</ul></font>
+    </div>
+    
+    <div class="div1">
+    <font face="verdana">
+    <img src="technology header.png" width="200" height="80" >
+    <ul><b>Technology</b></ul>
+    <ul>TV & Home Theater</ul>
+    <ul>Computer & Tablet</ul>
+    <ul>Camera</ul>
+    <ul>Phone & Earphone</ul>
+    <ul>Appliances</ul></font>
+    </div>
+    
+    <div class="div1">
+    <font face="verdana">
+    <img src="clothes header.jpg" width="200" height="80"> 
+    <ul><b>Apparel</b></ul>
+    <ul>Men<br><br>
+    <ul>Top</ul><br>
+    <ul>Bottom</ul><br>
+    <ul>Shoes</ul><br>
+    <ul>Accessories</ul></ul>
+    <ul>Women<br><br>
+    <ul>Top</ul><br>
+    <ul>Bottom</ul><br>
+    <ul>Shoes</ul><br>
+    <ul>Accessories</ul></ul></font>
+    </div>
+    
+    
+    
+    
+</div>
+</body>
+</html>
