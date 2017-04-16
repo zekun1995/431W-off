@@ -143,10 +143,11 @@ if ($conn->connect_error) {
 ?>
 <div class = "example">
 	<ul id = "nav">
-    	<li><a href="himalaya.html">Home</a></li>
+    	<li><a href="himalaya.php">Home</a></li>
 		<li><a class = "fly" href="#">Books</a>
         	<ul class = "dd">
-            	<li><a href="Book1.html">Fiction</a></li>
+                <li><a href="book.php">All</a></li>
+            	<li><a href=" ">Fiction</a></li>
                 <li><a href=" ">Non-Fiction</a></li>
                 <li><a href=" ">Science Fiction</a></li>
                 <li><a href=" ">Romance</a></li>
@@ -155,16 +156,17 @@ if ($conn->connect_error) {
 		</li>
         <li><a class = "fly" href="#">Technology</a>
         	<ul class = "dd">
+                <li><a href="tech.php">All</a></li>
             	<li><a href=" ">Computer</a></li>
                 <li><a href=" ">Coffee Machine</a></li>
                 <li><a href=" ">Mobile Phone</a></li>
                 <li><a href=" ">Television</a></li>
                 <li><a href=" ">Kindle</a></li>
   			</ul>
-		</li>
         </li>
         <li><a class = "fly" href="#">Clothes</a>
         	<ul class = "dd">
+                <li><a href="apparel.php">All</a></li>
             	<li><a class = "fly" href="#">Men</a>
                 	<ul>
                     	<li><a class = "fly" href="#">Top</a>
@@ -228,8 +230,7 @@ if ($conn->connect_error) {
 the features from all the mainstream website.</p>
 
 <div class="div1">
-<a href="all.html" rel="All" type="Categories"> All </a><br>
-
+<a href="all.php" rel="All" type="Categories"> All </a><br>
 <?php
 $sql = "SELECT Name, Picture_Link FROM Item";
 $result = mysqli_query($conn, $sql);
@@ -250,12 +251,10 @@ if (mysqli_num_rows($result) > 0) {
      echo "0 results";
 }
 ?>
-
 </div>
 
 <div class="div1">
-<a href="Book1.html " rel="Books" type="Categories"> Books </a><br>
-
+<a href="book.php" rel="Books" type="Categories"> Books </a><br>
 <?php
 $sql = "SELECT Name, Picture_Link FROM Item, Books WHERE Item.ItemID = Books.ItemID";
 $result = mysqli_query($conn, $sql);
@@ -276,41 +275,10 @@ if (mysqli_num_rows($result) > 0) {
      echo "0 results";
 }
 ?>
-
-	<!--div class="div2">
-	<img src="The Nightingale.jpg" width="150" height="150"> <br>
-    <p>The Nightingale</p>
-    <p>Kristin Hannah</p>
-    <p>$14.00</p>
-    </div>
-    <div class="div2">
-	<img src="Small Great Things.jpg" width="150" height="150" > <br>
-    <p>Small Great Things</p>
-    <p>Jodi Picoult</p>
-    <p>$10.00</p>
-    </div>
-    <div class="div2">
-	<img src="The Book Thief.jpg" width="150" height="150" > <br>
-    <p>The Book Thief</p>
-    <p>Markus Zusak</p>
-    <p>$30.00</p>
-    </div>
-    <div class="div2">
-	<img src="Orphan Train.jpg" width="150" height="150" > <br>
-    <p>Orphan Train</p>
-    <p>Christina Baker Kline</p>
-    <p>$9.90</p>
-    </div>
-    <div class="div2">
-	<img src="The Entrepreneur Mind.jpg" width="150" height="150" > <br>
-    <p>the Entrepreneur Mind</p>
-    <p>Kevin D. Johnson</p>
-    <p>$8.50</p>
-    </div-->
 </div>
-<div class="div1">
-<a href=" " rel="Technology" type="Categories"> Technology </a><br>
 
+<div class="div1">
+<a href="tech.php" rel="Technology" type="Categories"> Technology </a><br>
 <?php
 $sql = "SELECT Name, Picture_Link FROM Item, Technology WHERE Item.ItemID = Technology.ItemID";
 $result = mysqli_query($conn, $sql);
@@ -331,36 +299,10 @@ if (mysqli_num_rows($result) > 0) {
      echo "0 results";
 }
 ?>
-
-	<!--div class="div2">
-	<img src="Fire TV Stick with Alexa Voice Remote.jpg" width="150" height="150" > <br>
-    <p>Fire TV Voice Remote</p>
-    <p>$39.99</p>
-    </div>
-    <div class="div2">
-	<img src="Amazon Fire TV.jpg" width="150" height="150" > <br>
-    <p>Amazon Fire TV</p>
-    <p>$89.99</p>
-    </div>
-    <div class="div2">
-	<img src="coffee.jpg" width="150" height="150" > <br>
-    <p>Keurig K55 Coffer Maker</p>
-    <p>$94.43</p>
-    </div>
-    <div class="div2">
-	<img src="kindle.jpg" width="150" height="150" > <br>
-    <p>Kindle Paperwhite</p>
-    <p>$119.99</p>
-    </div>
-    <div class="div2">
-	<img src="Fire HD tablet.jpg" width="150" height="150" > <br>
-    <p>Fire HD Tablet</p>
-    <p>$39.97</p>
-    </div-->
 </div>
-<div class="div1">
-<a href=" " rel="Clothes" type="Categories"> Clothes </a><br>
 
+<div class="div1">
+<a href="Apparel.php" rel="Apparel" type="Categories"> Clothes </a><br>
 <?php
 $sql = "SELECT Name, Picture_Link FROM Item, Apparel WHERE Item.ItemID = Apparel.ItemID";
 $result = mysqli_query($conn, $sql);
@@ -381,31 +323,11 @@ if (mysqli_num_rows($result) > 0) {
      echo "0 results";
 }
 ?>
-
-	<!--div class="div2">
-	<img src="w cross front top.jpg" width="120" height="150" > <br>
-    <p>Cross Front Tops</p>
-    <p>Haola</p>
-    <p>$14.90</p>
-    </div>
-    <div class="div2">
-	<img src="Wj summer Wedding dress.jpg" width="120" height="150" > <br>
-    <p>Wedding Bridesmaid</p>
-    <p>iEFiEL</p>
-    <p>$11.95</p>
-    </div>
-    <div class="div2">
-	<img src="W Plus Size Cargo Capris.jpg" width="120" height="150" > <br>
-    <p>Cargo Capris</p>
-    <p>Ellos</p>
-    <p>$34.68</p>
-    </div-->
-    
-    
 </div>
+
 </div>
 <?php
-mysql_close($conn);
+mysqli_close($conn);
 ?>
 </body>
 </html>
