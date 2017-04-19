@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Apparel</title>
-<img src="clothespics/apparelheader.jpg" height=300><br><br><br>
+<img src="images/clothes/clothesheader.jpg" height=300><br><br><br>
 <style>
 @import url("../Sites/MHID_Project_2015 copy/style1.css");
  

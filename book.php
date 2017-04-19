@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Books</title>
-<img src="bookpics/booksheader.png"><br><br><br>
+<img src="images/books/booksheader.png"><br><br><br>
 <style>
 @import url("../Sites/MHID_Project_2015 copy/style1.css");
  

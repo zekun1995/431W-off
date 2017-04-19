@@ -36,7 +36,7 @@ CREATE TABLE Seller (
 CREATE TABLE Item (
 	ItemID INTEGER AUTO_INCREMENT NOT NULL,
 	Name VARCHAR(255) NOT NULL,
-	Info VARCHAR (255),
+	Info VARCHAR (511),
 	Sell_Method INTEGER NOT NULL, /* 0 is sell, 1 is bid*/
 	Categorie INTEGER NOT NULL, /*0 books, 1 Technology, 2 Apparel*/
     Picture_Link VARCHAR(255),

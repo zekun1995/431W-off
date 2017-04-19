@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Technology</title>
-<img src="techpics/techheader.png"><br><br><br>
+<img src="images/technology/techheader.png"><br><br><br>
 <style>
 @import url("../Sites/MHID_Project_2015 copy/style1.css");
  

@@ -232,7 +232,7 @@ the features from all the mainstream website.</p>
 <div class="div1">
 <a href="all.php" rel="All" type="Categories"> All </a><br>
 <?php
-$sql = "SELECT Name, Picture_Link FROM Item";
+$sql = "SELECT Name, Picture_Link FROM Item LIMIT 4";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -256,7 +256,7 @@ if (mysqli_num_rows($result) > 0) {
 <div class="div1">
 <a href="book.php" rel="Books" type="Categories"> Books </a><br>
 <?php
-$sql = "SELECT Name, Picture_Link FROM Item, Books WHERE Item.ItemID = Books.ItemID";
+$sql = "SELECT Name, Picture_Link FROM Item, Books WHERE Item.ItemID = Books.ItemID LIMIT 4";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -280,7 +280,7 @@ if (mysqli_num_rows($result) > 0) {
 <div class="div1">
 <a href="tech.php" rel="Technology" type="Categories"> Technology </a><br>
 <?php
-$sql = "SELECT Name, Picture_Link FROM Item, Technology WHERE Item.ItemID = Technology.ItemID";
+$sql = "SELECT Name, Picture_Link FROM Item, Technology WHERE Item.ItemID = Technology.ItemID LIMIT 4";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -304,7 +304,7 @@ if (mysqli_num_rows($result) > 0) {
 <div class="div1">
 <a href="Apparel.php" rel="Apparel" type="Categories"> Clothes </a><br>
 <?php
-$sql = "SELECT Name, Picture_Link FROM Item, Apparel WHERE Item.ItemID = Apparel.ItemID";
+$sql = "SELECT Name, Picture_Link FROM Item, Apparel WHERE Item.ItemID = Apparel.ItemID LIMIT 4";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
