@@ -114,6 +114,29 @@ body {
 #nav ul.dd li a:active + ul,#nav ul.dd li a:focus + ul,#nav ul.dd li ul:hover {
     left:140px;
 }
+.reveal-if-active {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  font-size: 16px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.reveal-if-active label {
+  display: block;
+  margin: 0 0 3px 0;
+}
+input[type="radio"]:checked ~ .reveal-if-active, input[type="checkbox"]:checked ~ .reveal-if-active {
+  opacity: 1;
+  max-height: 100px;
+  padding: 10px 20px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  overflow: visible;
+}
+
 </style>
 <script type="text/javascript">     
 var _pass;     
@@ -324,12 +347,25 @@ function regist(){
     <span class = "front_input">Password:</span><input name = "pass" type = "password" class="_input" onblur = "check_pass()"/><span id = "pass_error" class = "after_input"></span><br>
     <span class = "front_input">Re-enter Password:</span><input name = "rpass" type = "password" class = "_input" onblur = "check_rpass()"/><span id = "rpass_error" class = "after_input"></span><br>
     <span class = "front_input">Name:</span><input name="name" type = "text" class = "_input"/><br>
-    <span class = "front_input">Phone:</span><input name = "mobile" type = "text" class = "_input" onblur = "mobile()"/><span id="iphone_error" class = "after_input"></span><br>
+
+    <div>
+    <span class = "front_input">Buyer</span><input type="checkbox" name="Buyer" value="Buyer">
+    <div class="reveal-if-active">
+    <span class = "front_input">Annual Income:</span><input name = "income" type = "text" class = "_input" onblur = "income()"/><span id="income_error" class = "after_input"></span><br>
     <span class = "front_input">Age:</span><input name = "age" type = "text" class = "_input" onblur = "age()"/><span id="age_error" class = "after_input"></span><br>
     <span class = "front_input">Gender:</span><input name = "gender" type = "text" class = "_input" onblur = "gender()"/><span id="gender_error" class = "after_input"></span><br>
-    <span class = "front_input">Annual Income:</span><input name = "income" type = "text" class = "_input" onblur = "income()"/><span id="income_error" class = "after_input"></span><br>
-    <span class = "front_input">Buyer</span><input type="radio" name="type" value="Buyer" checked="checked"><br>
-    <span class = "front_input">Seller</span><input type="radio" name="type" value="Seller">
+    </div>
+    </div>
+    <div>
+    <span class = "front_input">Seller</span><input type="checkbox" name="Seller" value="Seller">
+    <div class="reveal-if-active">
+    <span class = "front_input">Address:</span><input name = "address" type = "text" class = "_input"/><br>
+     <span class = "front_input">Phone:</span><input name = "mobile" type = "text" class = "_input" onblur = "mobile()"/><span id="iphone_error" class = "after_input"></span><br>
+    <span class = "front_input">Revenue:</span><input name = "revenue" type = "text" class = "_input"/><span class = "after_input"></span><br>
+    <span class = "front_input">Individual Seller</span><input type="checkbox" name="indi"><br>
+    <span class = "front_input">Supplier</span><input type="checkbox" name="supplier">
+    </div>
+    </div>
 <div style = "clear:both;margin-left:330px;margin-top:50px;">
 <button type="submit" name="submit" onclick = "regist()">Register</button>
 </div>
