@@ -242,7 +242,7 @@ if (mysqli_num_rows($result) > 0) {
         $name = $row["Name"];
 ?>
 <div class="div2">
-<p><?php echo $name; ?></p>
+<a href="#"><?php echo $name; ?></a><br>
 <img src="<?php echo $link; ?>" width="150" height="150"/>
 </div>
 <?php
@@ -266,7 +266,7 @@ if (mysqli_num_rows($result) > 0) {
         $name = $row["Name"];
 ?>
 <div class="div2">
-<p><?php echo $name; ?></p>
+<a href="#"><?php echo $name; ?></a><br>
 <img src="<?php echo $link; ?>" width="150" height="150"/>
 </div>
 <?php
@@ -290,7 +290,7 @@ if (mysqli_num_rows($result) > 0) {
         $name = $row["Name"];
 ?>
 <div class="div2">
-<p><?php echo $name; ?></p>
+<a href="#"><?php echo $name; ?></a><br>
 <img src="<?php echo $link; ?>" width="150" height="150"/>
 </div>
 <?php
@@ -314,7 +314,7 @@ if (mysqli_num_rows($result) > 0) {
         $name = $row["Name"];
 ?>
 <div class="div2">
-<p><?php echo $name; ?></p>
+<a href="#"><?php echo $name; ?></a><br>
 <img src="<?php echo $link; ?>" width="150" height="150"/>
 </div>
 <?php
