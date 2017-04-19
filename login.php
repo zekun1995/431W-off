@@ -1,27 +1,30 @@
-<? php
+<?php
+// connect with DB
+$servername = "localhost:3306";
+$username = "root";
+$password = "lollipop";
+$dbname = "tester";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+
 // log in
-if(!isset($_POST['submit'])){
+if(isset($_POST['login'])){
 	exit('Error in Email or Password!');
 }
-$emailid = htmlspecialchars($_POST['Email']);
-$password = MD5($_POST['pass']);
-
-//connect to DB
-include('conn.php');
+$emailid = $_POST['email'];
+$password = $_POST['pass'];
 
 //check username or password
-$check_query = mysql_query("SELECT email FROM Customer WHERE email = '$emailid' and password = '$pass' limit 1");
-if($result = mysql_fetch_array($check_query)){
+$sql = "SELECT Email FROM Customer WHERE Email = '$emailid' and Password = '$password'";
+$check_query = mysqli_query($conn, $sql);
+if(mysqli_num_rows($check_query) > 0){
 	//login successfully
-	session_start();
-	$_SESSION['Email'] = $emailid;
-	$_SESSION['Email'] = $result['Email'];
-	echo $emailid, 'Welcome! <a href = "my.php">User Account</a><br />';
-	echo 'click here to <a href = "login.php?action=logout">Logout</a><br />';
+	echo $emailid, 'Welcome! <a href = "my.php">User Account</a><br/>';
+	echo 'click here to <a href = "login.html?action=logout">Logout</a><br />';
 	exit;
-}
-else{
-	exit('Failed to log in! Clike here to <a href = "javascript:history.back(-1);">get back</a>');
+}else{
+	exit('Failed to log in! Click here to <a href = "javascript:history.back(-1);">get back</a>');
 }
 //Logout
 if($_GET['action']=="logout"){

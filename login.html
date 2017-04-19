@@ -205,15 +205,16 @@ body {
 			<h1>Login Form</h1>
             <form name = "LoginForm" method = "post" action = "login.php" onSubmit = "return InputCheck(this)">
 			<div class="container">
-            <label><b>Username</b></label><br><br>
-			<input type="text" placeholder="Enter Username" required id = "username">
+            <label><b>Email</b></label><br><br>
+			<input type="text" input name = 'email' placeholder="Enter Email" required id = "Email">
 			
 			
             <br><label><b>Password</b></label><br><br>
-			<input type="password" placeholder="Password" required id="password">
+			<input type="password" input name = 'pass' placeholder="Password" required id="password">
 			
 			<!--button type = "submit">Login</button-->
-            <br><br><input type="submit" onclick = "location.href='himalaya.html';" style="background-color: #e7e7e7" value = "Login"/>
+            <br><button type="Login" name="Login">Login</button>
+
             
 			<!--br><a onclick="location.href='register.html';">Not yet register? Register</a-->
             <a href = "register.html">Not yet register? Register</a>
