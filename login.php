@@ -20,8 +20,8 @@ $sql = "SELECT Email FROM Customer WHERE Email = '$emailid' and Password = '$pas
 $check_query = mysqli_query($conn, $sql);
 if(mysqli_num_rows($check_query) > 0){
 	//login successfully
-	echo $emailid, 'Welcome! <a href = "my.php">User Account</a><br/>';
-	echo 'click here to <a href = "login.html?action=logout">Logout</a><br />';
+	echo $emailid, '<br>Welcome! <a href = "my.php">User Account</a><br/>';
+	echo 'Click here to <a href = "login.html?action=logout">Logout</a><br/>';
 	exit;
 }else{
 	exit('Failed to log in! Click here to <a href = "javascript:history.back(-1);">get back</a>');
@@ -29,7 +29,7 @@ if(mysqli_num_rows($check_query) > 0){
 //Logout
 if($_GET['action']=="logout"){
 	unset($_SESSION['Email']);
-	echo 'Logout successfully! Clike here to <a href="login.html">Login</a>';
+	echo 'Logout successfully! Click here to <a href="login.html">Login</a>';
 	exit;
 }
 
