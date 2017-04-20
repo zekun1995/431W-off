@@ -244,7 +244,7 @@ if (mysqli_num_rows($result) > 0) {
 
 //output books
 if ($categorie == 0) {
-    $sql2 = "SELECT Author, Categories, Price FROM Books, Sell_Item WHERE $itemid = Books.ItemID";
+    $sql2 = "SELECT Author, Categories, Price FROM Books, Sell_Item WHERE $itemid = Books.ItemID AND $itemid = Sell_Item.ItemID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
@@ -268,7 +268,7 @@ if ($categorie == 0) {
 
 //output tech
 if ($categorie == 1) {
-    $sql2 = "SELECT Categories, Price FROM Technology, Sell_Item WHERE $itemid = Technology.ItemID";
+    $sql2 = "SELECT Categories, Price FROM Technology, Sell_Item WHERE $itemid = Technology.ItemID AND $itemid = Sell_Item.ItemID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
@@ -290,7 +290,7 @@ if ($categorie == 1) {
 
 //output clothes
 if ($categorie == 2) {
-    $sql2 = "SELECT Gender, Categories, Size, Price FROM Apparel, Sell_Item WHERE $itemid = Apparel.ItemID";
+    $sql2 = "SELECT Gender, Categories, Size, Price FROM Apparel, Sell_Item WHERE $itemid = Apparel.ItemID AND $itemid = Sell_Item.ItemID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
