@@ -54,7 +54,7 @@ body {
     position:relative;
 }
 #nav li a {
-	
+    
     background:#c1c1bf;
     color:#000;
     display:block;
@@ -72,7 +72,7 @@ body {
     overflow:hidden;
 }
 #nav li a.fly {
-	margin:0 auto; 
+    margin:0 auto; 
     background:#c1c1bf url(../images/arrow.gif) no-repeat right center;
     padding-right:15px;
 }
@@ -88,7 +88,7 @@ body {
 
 /*hover styles*/
 #nav li:hover > a {
-	
+    
     background-color:#858180;
     color:#fff;
 }
@@ -107,20 +107,20 @@ body {
 }
 
 .div1 {
-	background-color:#F8F8F8;
-	/*width:2;*/
-	margin: 10px 20px;
-	padding: 20px;
-	float: left;
-	
+    background-color:#F8F8F8;
+    /*width:2;*/
+    margin: 10px 20px;
+    padding: 20px;
+    float: left;
+    
 }
 .div2 {
-	background-color:#F8F8F8;
-	/*width:2;*/
-	margin: 10px 20px;
-	padding: 15px;
-	float: left;
-	
+    background-color:#F8F8F8;
+    /*width:2;*/
+    margin: 10px 20px;
+    padding: 15px;
+    float: left;
+    
 }
 
 </style>
@@ -145,86 +145,86 @@ $_SESSION['itemid'] = $_GET['itemid'];
 $itemid = $_GET['itemid'];
 ?>
 <div class = "example">
-	<ul id = "nav">
-    	<li><a href="himalaya.php">Home</a></li>
-		<li><a class = "fly" href="#">Books</a>
-        	<ul class = "dd">
+    <ul id = "nav">
+        <li><a href="himalaya.php">Home</a></li>
+        <li><a class = "fly" href="#">Books</a>
+            <ul class = "dd">
                 <li><a href="book.php">All</a></li>
-            	<li><a href=" ">Fiction</a></li>
+                <li><a href=" ">Fiction</a></li>
                 <li><a href=" ">Non-Fiction</a></li>
                 <li><a href=" ">Science Fiction</a></li>
                 <li><a href=" ">Romance</a></li>
                 <li><a href=" ">Mystery</a></li>
-  			</ul>
-		</li>
+            </ul>
+        </li>
         <li><a class = "fly" href="#">Technology</a>
-        	<ul class = "dd">
+            <ul class = "dd">
                 <li><a href="tech.php">All</a></li>
-            	<li><a href=" ">Computer</a></li>
+                <li><a href=" ">Computer</a></li>
                 <li><a href=" ">Coffee Machine</a></li>
                 <li><a href=" ">Mobile Phone</a></li>
                 <li><a href=" ">Television</a></li>
                 <li><a href=" ">Kindle</a></li>
-  			</ul>
+            </ul>
         </li>
         <li><a class = "fly" href="#">Clothes</a>
-        	<ul class = "dd">
+            <ul class = "dd">
                 <li><a href="apparel.php">All</a></li>
-            	<li><a class = "fly" href="#">Men</a>
-                	<ul>
-                    	<li><a class = "fly" href="#">Top</a>
-                		<ul>
-            				<li><a href=" ">Junior</a></li>
-                			<li><a href=" ">Adult</a></li>
-                			<li><a href=" ">Senior</a></li>
+                <li><a class = "fly" href="#">Men</a>
+                    <ul>
+                        <li><a class = "fly" href="#">Top</a>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Senior</a></li>
                         </ul>
                         </li>
                         <li><a class = "fly" href="#">Bottom</a>
-                		<ul>
-            				<li><a href=" ">Junior</a></li>
-                			<li><a href=" ">Adult</a></li>
-                			<li><a href=" ">Senior</a></li>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Senior</a></li>
                         </ul>
                         </li>
                         <li><a class = "fly" href="#">Shoes</a>
-                		<ul>
-            				<li><a href=" ">Junior</a></li>
-                			<li><a href=" ">Adult</a></li>
-                			<li><a href=" ">Kids</a></li>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Kids</a></li>
                         </ul>
-                    	</li>
+                        </li>
                     </ul>
                 </li>
                 <li><a class = "fly" href="#">Women</a>
-                	<ul>
-                    	<li><a class = "fly" href="#">Top</a>
-                		<ul>
-            				<li><a href=" ">Junior</a></li>
-                			<li><a href=" ">Adult</a></li>
-                			<li><a href=" ">Senior</a></li>
+                    <ul>
+                        <li><a class = "fly" href="#">Top</a>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Senior</a></li>
                         </ul>
                         </li>
                         <li><a class = "fly" href="#">Bottom</a>
-                		<ul>
-            				<li><a href=" ">Junior</a></li>
-                			<li><a href=" ">Adult</a></li>
-                			<li><a href=" ">Senior</a></li>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Senior</a></li>
                         </ul>
                         </li>
                         <li><a class = "fly" href="#">Shoes</a>
-                		<ul>
-            				<li><a href=" ">Junior</a></li>
-                			<li><a href=" ">Adult</a></li>
-                			<li><a href=" ">Kids</a></li>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Kids</a></li>
                         </ul>
-                    	</li>
+                        </li>
                     </ul>
                 </li>
-  			</ul>
-		</li>
+            </ul>
+        </li>
         <li><a href="login.html">Login</a></li>
         <li><a href="register.html">Register</a></li>
-	</ul>
+    </ul>
 
 <?php
 $sql = "SELECT Name, Info, Categorie, Picture_Link FROM Item WHERE $itemid = Item.ItemID";
@@ -244,13 +244,16 @@ if (mysqli_num_rows($result) > 0) {
 
 //output books
 if ($categorie == 0) {
-    $sql2 = "SELECT Author, Categories, Price FROM Books, Sell_Item WHERE $itemid = Books.ItemID";
+    $sql2 = "SELECT Author, Categories, Start_Time, End_Time, Start_Price, Status FROM Books, Bid_Item WHERE $itemid = Books.ItemID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
             $author = $row2["Author"];
-            $price = $row2["Price"];
             $categories = $row2["Categories"];
+            $stime = $row2["Start_Time"];
+            $etime = $row2["End_Time"];
+            $sprice = $row2["Start_Price"];
+            $status = $row2["Status"];
         }
 ?>
 <div class="div2">
@@ -259,7 +262,9 @@ if ($categorie == 0) {
 <p>Genre: <?php echo $categories ?></p>
 <a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
 <p>Info: <br><?php echo $info; ?></p>
-<p>Price: <?php echo $price ?> USD</p>
+<p>Start Time: <?php $stime ?></p>
+<p>End Time: <?php $etime ?></p>
+<p>Starting Price: <?php echo $sprice ?> USD</p>
 <?php
     } else {
     echo "0 results";
@@ -268,20 +273,26 @@ if ($categorie == 0) {
 
 //output tech
 if ($categorie == 1) {
-    $sql2 = "SELECT Categories, Price FROM Technology, Sell_Item WHERE $itemid = Technology.ItemID";
+    $sql2 = "SELECT Categories, Start_Time, End_Time, Start_Price, Status FROM Technology, Bid_Item WHERE $itemid = Technology.ItemID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
             $categories = $row2["Categories"];
-            $price = $row2["Price"];
+            $stime = $row2["Start_Time"];
+            $etime = $row2["End_Time"];
+            $sprice = $row2["Start_Price"];
+            $status = $row2["Status"];
         }
 ?>
 <div class="div2">
 <p><?php echo $name ?></p>
 <p>Categorie: <?php echo $categories ?></p>
+<p>Status: <?php $status ?></p>
 <a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
 <p>Info: <br><?php echo $info; ?></p>
-<p>Price: <?php echo $price ?> USD</p>
+<p>Start Time: <?php $stime ?></p>
+<p>End Time: <?php $etime ?></p>
+<p>Starting Price: <?php echo $sprice ?> USD</p>
 <?php
     } else {
         echo "0 results";
@@ -290,14 +301,17 @@ if ($categorie == 1) {
 
 //output clothes
 if ($categorie == 2) {
-    $sql2 = "SELECT Gender, Categories, Size, Price FROM Apparel, Sell_Item WHERE $itemid = Apparel.ItemID";
+    $sql2 = "SELECT Gender, Categories, Size, Start_Time, End_Time, Start_Price, Status FROM Apparel, Bid_Item WHERE $itemid = Apparel.ItemID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
             $gender = $row2["Gender"];
             $categories = $row2["Categories"];
             $size = $row2["Size"];
-            $price = $row2["Price"];
+            $stime = $row2["Start_Time"];
+            $etime = $row2["End_Time"];
+            $sprice = $row2["Start_Price"];
+            $status = $row2["Status"];
         }
 ?>
 <div class="div2">
@@ -307,7 +321,9 @@ if ($categorie == 2) {
 <p>Gender: <?php echo $gender?></p>
 <p>Size: <?php echo $size?></p>
 <p>Info: <br><?php echo $info; ?></p>
-<p>Price: <?php echo $price ?> USD</p>
+<p>Start Time: <?php $stime ?></p>
+<p>End Time: <?php $etime ?></p>
+<p>Starting Price: <?php echo $sprice ?> USD</p>
 <?php
     } else {
         echo "0 results";
@@ -315,7 +331,7 @@ if ($categorie == 2) {
 }
 mysqli_close($conn);
 ?>
-<input type="button" value="Buy">
+<p>Your Bid: <input type="text"> <input type="button" value="Bid"></p>
 </div>
 </body>
 </html>
