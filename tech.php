@@ -1,7 +1,6 @@
 <html>
 <head>
 <title>Technology</title>
-<img src="images/technology/techheader.png"><br><br><br>
 <style>
 @import url("../Sites/MHID_Project_2015 copy/style1.css");
  
@@ -140,23 +139,104 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 ?>
+<div class = "example">
+    <ul id = "nav">
+        <li><a href="himalaya.php">Home</a></li>
+        <li><a class = "fly" href="#">Books</a>
+            <ul class = "dd">
+                <li><a href="book.php">All</a></li>
+                <li><a href=" ">Fiction</a></li>
+                <li><a href=" ">Non-Fiction</a></li>
+                <li><a href=" ">Science Fiction</a></li>
+                <li><a href=" ">Romance</a></li>
+                <li><a href=" ">Mystery</a></li>
+            </ul>
+        </li>
+        <li><a class = "fly" href="#">Technology</a>
+            <ul class = "dd">
+                <li><a href="tech.php">All</a></li>
+                <li><a href=" ">Computer</a></li>
+                <li><a href=" ">Coffee Machine</a></li>
+                <li><a href=" ">Mobile Phone</a></li>
+                <li><a href=" ">Television</a></li>
+                <li><a href=" ">Kindle</a></li>
+            </ul>
+        </li>
+        <li><a class = "fly" href="#">Clothes</a>
+            <ul class = "dd">
+                <li><a href="apparel.php">All</a></li>
+                <li><a class = "fly" href="#">Men</a>
+                    <ul>
+                        <li><a class = "fly" href="#">Top</a>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Bottom</a>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Shoes</a>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Kids</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class = "fly" href="#">Women</a>
+                    <ul>
+                        <li><a class = "fly" href="#">Top</a>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Bottom</a>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Shoes</a>
+                        <ul>
+                            <li><a href=" ">Junior</a></li>
+                            <li><a href=" ">Adult</a></li>
+                            <li><a href=" ">Kids</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+    </ul>
 
 <div class="div1">
-<a href="tech.php" rel="Technology" type="Categories">Technology</a><br>
-
+<a href="tech.php" rel="Technology" type="Categories"> Technology </a><br>
 <?php
-$sql = "SELECT Name, Picture_Link FROM Item WHERE Item.Categorie=1";
+$sql = "SELECT Item.ItemID, Name, Picture_Link FROM Item, Technology WHERE Item.ItemID = Technology.ItemID";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
      // output data of each row
      while($row = mysqli_fetch_assoc($result)) {
+        $itemid = $row["ItemID"];
         $link = $row["Picture_Link"];
         $name = $row["Name"];
 ?>
 <div class="div2">
-<p><?php echo $name; ?></p>
-<img src="<?php echo $link; ?>" width="150" height="150"/>
+<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><?php echo $name; ?></a><br>
+<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
 </div>
 <?php
      }
@@ -164,7 +244,6 @@ if (mysqli_num_rows($result) > 0) {
      echo "0 results";
 }
 ?>
-
 </div>
 </body>
 </html>
