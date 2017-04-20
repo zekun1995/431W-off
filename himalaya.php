@@ -243,7 +243,7 @@ if (mysqli_num_rows($result) > 0) {
 ?>
 <div class="div2">
 <a href="#"><?php echo $name; ?></a><br>
-<img src="<?php echo $link; ?>" width="150" height="150"/>
+<a href="#"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
 </div>
 <?php
      }
@@ -267,7 +267,7 @@ if (mysqli_num_rows($result) > 0) {
 ?>
 <div class="div2">
 <a href="#"><?php echo $name; ?></a><br>
-<img src="<?php echo $link; ?>" width="150" height="150"/>
+<a href="#"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
 </div>
 <?php
      }
@@ -291,7 +291,7 @@ if (mysqli_num_rows($result) > 0) {
 ?>
 <div class="div2">
 <a href="#"><?php echo $name; ?></a><br>
-<img src="<?php echo $link; ?>" width="150" height="150"/>
+<a href="#"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
 </div>
 <?php
      }
@@ -315,7 +315,7 @@ if (mysqli_num_rows($result) > 0) {
 ?>
 <div class="div2">
 <a href="#"><?php echo $name; ?></a><br>
-<img src="<?php echo $link; ?>" width="150" height="150"/>
+<a href="#"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
 </div>
 <?php
      }
