@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head>     
+<title>Add New Item!</title>    
+<style>          
+ul {list-style-type:none;}     
+ul li {margin-bottom:15px;}          
+.front_input {width:150px;display:block;text-align:right;}     
+.front_input,ul li input {float:left;}
+.after_input {margin-left:5px;color:#FF0000;font-size:14px;folat:left;}     
+ul input {width:200px;height:18px;}     
+.front_input {clear:both;}    
+</style>
+<link href="style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+@import url("../Sites/MHID_Project_2015 copy/style1.css");
+body {
+    background:#eee;
+    margin:0;
+    padding:0;
+}
+.example {
+    background:#fff url(../images/tech.jpg);
+    /*width:770px;
+    height:570px;
+    border:1px #000 solid;*/
+    margin:20px auto;
+    padding:15px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+/* main menu styles */
+#nav,#nav ul {
+    background-image:url(../images/tr75.png);
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#nav {
+    height:41px;
+    padding-left:5px;
+    padding-top:5px;
+    position:relative;
+    z-index:2;
+}
+#nav ul {
+    left:-9999px;
+    position:absolute;
+    top:37px;
+    width:auto;
+}
+#nav ul ul {
+    left:-9999px;
+    position:absolute;
+    top:0;
+    width:auto;
+}
+#nav li {
+    float:left;
+    margin-right:5px;
+    position:relative;
+}
+#nav li a {
+	
+    background:#c1c1bf;
+    color:#000;
+    display:block;
+    float:left;
+    font-size:16px;
+    padding:8px 10px;
+    text-decoration:none;
+}
+#nav > li > a {
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    -o-border-radius:6px;
+    border-radius:6px;
+
+    overflow:hidden;
+}
+#nav li a.fly {
+	margin:0 auto; 
+    background:#c1c1bf url(../images/arrow.gif) no-repeat right center;
+    padding-right:15px;
+}
+#nav ul li {
+    margin:0;
+}
+#nav ul li a {
+    width:120px;
+}
+#nav ul li a.fly {
+    padding-right:10px;
+}
+
+/*hover styles*/
+#nav li:hover > a {
+	
+    background-color:#858180;
+    color:#fff;
+}
+
+/*focus styles*/
+    #nav li a:focus {
+    outline-width:0;
+}
+
+/*popups*/
+#nav li a:active + ul.dd,#nav li a:focus + ul.dd,#nav li ul.dd:hover {
+    left:0;
+}
+#nav ul.dd li a:active + ul,#nav ul.dd li a:focus + ul,#nav ul.dd li ul:hover {
+    left:140px;
+}
+.reveal-if-active {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  font-size: 16px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.reveal-if-active label {
+  display: block;
+  margin: 0 0 3px 0;
+}
+input[type="radio"]:checked ~ .reveal-if-active, input[type="checkbox"]:checked ~ .reveal-if-active {
+  opacity: 1;
+  max-height: 100px;
+  padding: 10px 20px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  overflow: visible;
+}
+
+</style>
+<script type="text/javascript">     
+var _pass;     
+/**      *Check user name        */      
+String.prototype.Trim = function() {      
+return this.replace(/(^\s*)|(\s*$)/g, ""); }      //---------------------------------------------------------------------------     
+ 
+		  /**      *check password    */      //---------------------------------------------------------------------------     
+		  function check_pass(){      
+		  var pass;       
+		  pass = document.getElementById('pass').value;      
+		  pass = pass.Trim();      
+		  _pass = pass;      
+		  if (pass == "") {        
+		  document.getElementById('pass_error').innerHTML = "Password cannot be null"; 
+
+      		} 
+			else {         
+				if (/^\w{6,20}$/.test(pass)) {          
+					document.getElementById('pass_error').innerHTML = "";         	} 
+				else {          
+					document.getElementById('pass_error').innerHTML = "6 ~ 20 character【0-9】【a-z-A-Z】";         
+				}             
+			}      
+		}     
+		/**      *check Email     */      //---------------------------------------------------------------------------     
+		function check_email(){      
+			var email;       
+			email = document.getElementById('email').value;      
+			email = email.Trim();      
+			if (email == "") {        
+				document.getElementById('email_error').innerHTML = "Email";       
+			} 
+			else {         
+				if (/^[\w-]+[\.]*[\w-]+[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$/.test(email)) {         
+					document.getElementById('email_error').innerHTML = "";         
+					} 
+					else {          
+						document.getElementById('email_error').innerHTML = "Email";         
+						}             
+					}      
+				}         
+/**      *check rpass     */      //---------------------------------------------------------------------------     
+function check_rpass(){      
+	var rpass;       
+	rpass = document.getElementById('rpass').value;      
+	rpass = rpass.Trim();      
+	if (rpass == "") {        
+		document.getElementById('rpass_error').innerHTML = "re-enter passwrd cannot be null";       
+		}        
+		else if (rpass != _pass) {        
+			document.getElementById('rpass_error').innerHTML = "Password is different";       
+			}      
+		else {        
+			document.getElementById('rpass_error').innerHTML = ""
+ 		}         
+	}         
+	//check phone:  
+	function mobile(){    
+		var mobile;   
+		mobile = document.getElementById('mobile').value;      
+		mobile = mobile.Trim();             
+		if(mobile.length==0)         {   
+			document.getElementById('iphone_error').innerHTML = "Please enter password";                    
+			}              
+			if(mobile.length!=10)         {   
+			document.getElementById('iphone_error').innerHTML = "Please re-enter your phone number";                    
+			}          
+			else {        
+				document.getElementById('iphone_error').innerHTML = ""       		}     
+		} 
+	function age(){
+		var age;
+		age = document.getElementById('age').value;
+		age = age.Trim();
+		if(age.length==0)
+			document.getElementById('age_error').innerHTML = "Please enter your age";
+		else
+			document.getElementById('age_error').innerHTML = ""
+	}
+	function gender(){
+		var gender;
+		gender = document.getElementById('gender').value;
+		gender = gender.Trim();
+		if(gender.length==0)
+			document.getElementById('gender_error').innerHTML = "Please enter your gender: Male or Female";
+		else
+			document.getElementById('gender_error').innerHTML = ""
+	}
+	function income(){
+		var income;
+		income = document.getElementById('income').value;
+		income = income.Trim();
+		if(income.length==0)
+			document.getElementById('income_error').innerHTML = "Please enter your annual income";
+		else
+			document.getElementById('income_error').innerHTML = ""
+	}
+			                //---------------------------------------------------------------------------     
+function regist(){       
+	      
+	var pass_error=document.getElementById('pass_error').innerHTML;    var rpass_error=document.getElementById('rpass_error').innerHTML;    var email_error=document.getElementById('email_error').innerHTML;    var iphone_error=document.getElementById('iphone_error').innerHTML;    
+	var age_error=document.getElementById('age_error').innerHTML; 
+	var gender_error=document.getElementById('gender_error').innerHTML;
+	var income_error=document.getElementById('income_error').innerHTML;
+	     
+	var pass=document.getElementById('pass').value;      
+	var rpass=document.getElementById('rpass').value;      
+	var email=document.getElementById('email').value;   
+	var mobile=document.getElementById('mobile').value;
+	var age=document.getElementById('age').value;
+	var gender=document.getElementById('gender').value;
+	var income=document.getElementById('income').value;
+	 if (( pass_error == "" && rpass_error == ""&& iphone_error == "" && email_error == ""&& age_error == ""&& gender_error == ""&& income_error == "")&&( pass != "" && rpass != "" && email != ""&& age!=""&& gender!=""&& income!="")) {       
+	 alert ("Congratulation,you have successfully registed!");       
+	 } 
+	 else {         
+	 	alert ("Sorry but registration has failed. Please check the information you have entered.");               
+	}                 
+	} 
+</script>  
+</head>
+<body>
+<div class = "example">
+    <ul id = "nav">
+    	<li><a href="../himalaya.php">Home</a></li>
+		<li><a class = "fly" href="#">Books</a>
+        	<ul class = "dd">
+            	<li><a href=" ">Fiction</a></li>
+                <li><a href=" ">Non-Fiction</a></li>
+                <li><a href=" ">Science Fiction</a></li>
+                <li><a href=" ">Romance</a></li>
+                <li><a href=" ">Mystery</a></li>
+  			</ul>
+		</li>
+        <li><a class = "fly" href="#">Technology</a>
+        	<ul class = "dd">
+            	<li><a href=" ">Computer</a></li>
+                <li><a href=" ">Coffee Machine</a></li>
+                <li><a href=" ">Mobile Phone</a></li>
+                <li><a href=" ">Portabe Heater</a></li>
+                <li><a href=" ">Kindle</a></li>
+  			</ul>
+		</li>
+        </li>
+        <li><a class = "fly" href="#">Clothes</a>
+        	<ul class = "dd">
+            	<li><a class = "fly" href="#">Men</a>
+                	<ul>
+                    	<li><a class = "fly" href="#">Top</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Bottom</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Shoes</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Kids</a></li>
+                        </ul>
+                    	</li>
+                    </ul>
+                </li>
+                <li><a class = "fly" href="#">Women</a>
+                	<ul>
+                    	<li><a class = "fly" href="#">Top</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Bottom</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Shoes</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Kids</a></li>
+                        </ul>
+                    	</li>
+                    </ul>
+                </li>
+  			</ul>
+		</li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+	</ul>
+
+<p style="padding:20px 20px 30px 150px"><font style = "font-size:28pt">Add a New Item</font></p>
+<ul>
+<form action="phpfunctions/insertItem.php" method="post">
+    <span class = "front_input">Name:</span><input name="name" type = "text" class = "_input"/><br>
+    <span class = "front_input">Info:</span><input name="info" type = "text" class = "_input"/><br>
+    <span class = "front_input">Sell Method:</span><br>
+
+    <div>
+    <span class = "front_input">Sell</span><input name="sell" type = "checkbox" class = "_input"/><br>
+    <div class ="reveal-if-active">
+    <span class = "front_input">Price:</span><input name="price" type = "text" class = "_input"/><br>
+    </div>
+
+    <div>
+    <span class = "front_input">Bid</span><input name="bid" type = "checkbox" class = "_input"/><br>
+    <div class ="reveal-if-active">
+    <span class = "front_input">End Time:</span><input name="etime" type = "text" class = "_input"/><br>
+    <span class = "front_input">Starting Price:</span><input name="sprice" type = "text" class = "_input"/><br>
+    <span class = "front_input">Reserve Price:</span><input name="rprice" type = "text" class = "_input"/><br>
+    </div>
+
+    <span class = "front_input">Categorie:</span><br>
+
+    <div>
+    <span class = "front_input">Book</span><input name="book" type = "checkbox" class = "_input"/><br>
+    <div class ="reveal-if-active">
+    <span class = "front_input">Author:</span><input name="author" type = "text" class = "_input"/><br>
+    <span class = "front_input">Genre: </span><input name="genre" type = "text" class = "_input"/><br>
+    </div>
+
+    <div>
+    <span class = "front_input">Technology</span><input name="tech" type = "checkbox" class = "_input"/><br>
+    <div class ="reveal-if-active">
+    <span class = "front_input">Categorie: </span><input name="tcategorie" type = "text" class = "_input"/><br>
+    </div>
+
+    <div>
+    <span class = "front_input">Clothes</span><input name="clothes" type = "checkbox" class = "_input"/><br>
+    <div class ="reveal-if-active">
+    <span class = "front_input">Gender:</span><input name="gender" type = "text" class = "_input"/><br>
+    <span class = "front_input">Categorie: </span><input name="acategorie" type = "text" class = "_input"/><br>
+    <span class = "front_input">Size:</span><input name="size" type = "text" class = "_input"/><br>
+    </div>
+    
+    <span class = "front_input">Picture Link:</span><input name="picture" type = "text" class = "_input"/><br>
+    <div style = "clear:both;margin-left:330px;margin-top:50px;">
+    <button type="submit" name="add">Add Item</button>
+    </div>
+</form>
+</ul>
+</div>
+</body>
+</html>
