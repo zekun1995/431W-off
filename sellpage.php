@@ -140,6 +140,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+session_start();
+$_SESSION['itemid'] = $_GET['itemid'];
+$itemid = $_GET['itemid'];
 ?>
 <div class = "example">
 	<ul id = "nav">
@@ -223,115 +226,99 @@ if ($conn->connect_error) {
         <li><a href="register.html">Register</a></li>
 	</ul>
 
-
-<h1> Himalaya </h1>
-<h2> Ultimate trading hub for college students </h2>
-<p>Himalaya is a user-friendly website for colleges students to trade items. It includes
-the features from all the mainstream website.</p>
-
-<div class="div1">
-<a href="all.php" rel="All" type="Categories"> All </a><br>
 <?php
-$sql = "SELECT ItemID, Name, Picture_Link FROM Item LIMIT 4";
+$sql = "SELECT Name, Info, Categorie, Picture_Link FROM Item WHERE $itemid = Item.ItemID";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
      // output data of each row
      while($row = mysqli_fetch_assoc($result)) {
-        $itemid = $row["ItemID"];
-        $link = $row["Picture_Link"];
         $name = $row["Name"];
+        $info = $row["Info"];
+        $link = $row["Picture_Link"];
+        $categorie = $row["Categorie"];
+    }
+} else {
+    echo "0 results";
+}
+
+//output books
+if ($categorie == 0) {
+    $sql2 = "SELECT Author, Categories, Price FROM Books, Sell_Item WHERE $itemid = Books.ItemID";
+    $result2 = mysqli_query($conn, $sql2);
+    if (mysqli_num_rows($result2) > 0) {
+        while($row2 = mysqli_fetch_assoc($result2)) {
+            $author = $row2["Author"];
+            $price = $row2["Price"];
+            $categories = $row2["Categories"];
+        }
 ?>
 <div class="div2">
-<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><?php echo $name; ?></a><br>
-<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
-</div>
+<p><?php echo $name ?></p>
+<p>Author: <?php echo $author ?></p>
+<p>Genre: <?php echo $categories ?></p>
+<a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
+<p>Price: <?php echo $price ?> USD</p>
+<p>Info: <br><?php echo $info; ?></p>
 <?php
-     }
-} else {
-     echo "0 results";
+    } else {
+    echo "0 results";
+    }
 }
-?>
-</div>
 
-<div class="div1">
-<a href="book.php" rel="Books" type="Categories"> Books </a><br>
-<?php
-$sql = "SELECT Item.ItemID, Name, Picture_Link FROM Item, Books WHERE Item.ItemID = Books.ItemID LIMIT 4";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-     // output data of each row
-     while($row = mysqli_fetch_assoc($result)) {
-        $itemid = $row["ItemID"];
-        $link = $row["Picture_Link"];
-        $name = $row["Name"];
+//output tech
+if ($categorie == 1) {
+    $sql2 = "SELECT Categories, Price FROM Technology, Sell_Item WHERE $itemid = Technology.ItemID";
+    $result2 = mysqli_query($conn, $sql2);
+    if (mysqli_num_rows($result2) > 0) {
+        while($row2 = mysqli_fetch_assoc($result2)) {
+            $categories = $row2["Categories"];
+            $price = $row2["Price"];
+        }
 ?>
 <div class="div2">
-<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><?php echo $name; ?></a><br>
-<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
-</div>
+<p><?php echo $name ?></p>
+<p>Categorie: <?php echo $categories ?></p>
+<a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
+<p>Price: <?php echo $price ?> USD</p>
+<p>Info: <br><?php echo $info; ?></p>
 <?php
-     }
-} else {
-     echo "0 results";
+    } else {
+        echo "0 results";
+    }
 }
-?>
-</div>
 
-<div class="div1">
-<a href="tech.php" rel="Technology" type="Categories"> Technology </a><br>
-<?php
-$sql = "SELECT Item.ItemID, Name, Picture_Link FROM Item, Technology WHERE Item.ItemID = Technology.ItemID LIMIT 4";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-     // output data of each row
-     while($row = mysqli_fetch_assoc($result)) {
-        $itemid = $row["ItemID"];
-        $link = $row["Picture_Link"];
-        $name = $row["Name"];
+//output clothes
+if ($categorie == 2) {
+    $sql2 = "SELECT Gender, Categories, Size, Price FROM Apparel, Sell_Item WHERE $itemid = Apparel.ItemID";
+    $result2 = mysqli_query($conn, $sql2);
+    if (mysqli_num_rows($result2) > 0) {
+        while($row2 = mysqli_fetch_assoc($result2)) {
+            $gender = $row2["Gender"];
+            $categories = $row2["Categories"];
+            $size = $row2["Size"];
+            $price = $row2["Price"];
+        }
 ?>
 <div class="div2">
-<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><?php echo $name; ?></a><br>
-<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
-</div>
+<p><?php echo $name ?></p>
+<p>Categorie: <?php echo $categories ?></p>
+<a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
+<p>Price: <?php echo $price ?> USD</p>
+<p>Gender: <?php echo $gender?></p>
+<p>Size: <?php echo $size?></p>
+<p>Info: <br><?php echo $info; ?></p>
 <?php
-     }
-} else {
-     echo "0 results";
+    } else {
+        echo "0 results";
+    }
 }
 ?>
-</div>
 
-<div class="div1">
-<a href="Apparel.php" rel="Apparel" type="Categories"> Clothes </a><br>
-<?php
-$sql = "SELECT Item.ItemID, Name, Picture_Link FROM Item, Apparel WHERE Item.ItemID = Apparel.ItemID LIMIT 4";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-     // output data of each row
-     while($row = mysqli_fetch_assoc($result)) {
-        $itemid = $row["ItemID"];
-        $link = $row["Picture_Link"];
-        $name = $row["Name"];
-?>
-<div class="div2">
-<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><?php echo $name; ?></a><br>
-<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
-</div>
-<?php
-     }
-} else {
-     echo "0 results";
-}
-?>
-</div>
-
-</div>
 <?php
 mysqli_close($conn);
 ?>
+<input type="button" value="Buy">
+</div>
 </body>
 </html>
