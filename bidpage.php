@@ -257,7 +257,7 @@ if ($categorie == 0) {
         }
 ?>
 <div class="div2">
-<p><?php echo $name ?></p>
+<p><b><font size="+3"><?php echo $name ?></font></b></p>
 <p>Author: <?php echo $author ?></p>
 <p>Genre: <?php echo $categories ?></p>
 <a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
