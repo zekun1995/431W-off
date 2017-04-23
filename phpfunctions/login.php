@@ -25,13 +25,13 @@ if(mysqli_num_rows($result) > 0){
 	while($row = mysqli_fetch_assoc($result)) {
 		//login successfully
 		$id = $row["CustomerID"];
-		header( "refresh:5;url=../userProfile.php?id=$id");
+		header( "refresh:3;url=../userProfile.php?id=$id");
 		echo $emailid;
 		?>
 		<br>Welcome! <a href = "../userProfile.php?id=<?php echo $id ?>">User Account</a><br/>
 		<?php
 		echo 'Click here to <a href = "../login.html?action=logout">Logout</a><br/>';
-		echo 'The webpage will redirect you to user center in 5 seconds.';
+		echo 'The webpage will redirect you to user center in 3 seconds.';
 		exit;
 	}
 }else{
