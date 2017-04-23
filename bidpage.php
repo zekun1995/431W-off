@@ -244,7 +244,7 @@ if (mysqli_num_rows($result) > 0) {
 
 //output books
 if ($categorie == 0) {
-    $sql2 = "SELECT Author, Categories, Start_Time, End_Time, Start_Price, Status FROM Books, Bid_Item WHERE $itemid = Books.ItemID AND $itemid = Bid_Item.ItemID";
+    $sql2 = "SELECT Author, Categories, Start_Time, End_Time, Start_Price, Status, MAX(Price) FROM Books, Bid_Item, Bid, Bid_Contains WHERE $itemid = Books.ItemID AND $itemid = Bid_Item.ItemID AND $itemid = Bid_Contains.ItemID AND Bid_Contains.BidID = Bid.BidID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
@@ -254,6 +254,7 @@ if ($categorie == 0) {
             $etime = $row2["End_Time"];
             $sprice = $row2["Start_Price"];
             $status = $row2["Status"];
+            $cprice = $row2["MAX(Price)"];
         }
 ?>
 <div class="div2">
@@ -265,6 +266,7 @@ if ($categorie == 0) {
 <p>Start Time: <?php $stime ?></p>
 <p>End Time: <?php $etime ?></p>
 <p>Starting Price: <?php echo $sprice ?> USD</p>
+<p>Current Price: <?php echo $cprice ?> USD</p>
 <?php
     } else {
     echo "0 results";
@@ -273,7 +275,7 @@ if ($categorie == 0) {
 
 //output tech
 if ($categorie == 1) {
-    $sql2 = "SELECT Categories, Start_Time, End_Time, Start_Price, Status FROM Technology, Bid_Item WHERE $itemid = Technology.ItemID AND $itemid = Bid_Item.ItemID";
+    $sql2 = "SELECT Categories, Start_Time, End_Time, Start_Price, Status , MAX(Price) FROM Technology, Bid_Item, Bid, Bid_Contains WHERE $itemid = Technology.ItemID AND $itemid = Bid_Item.ItemID AND $itemid = Bid_Contains.ItemID AND Bid_Contains.BidID = Bid.BidID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
@@ -282,6 +284,7 @@ if ($categorie == 1) {
             $etime = $row2["End_Time"];
             $sprice = $row2["Start_Price"];
             $status = $row2["Status"];
+            $cprice = $row2["MAX(Price)"];
         }
 ?>
 <div class="div2">
@@ -293,6 +296,7 @@ if ($categorie == 1) {
 <p>Start Time: <?php $stime ?></p>
 <p>End Time: <?php $etime ?></p>
 <p>Starting Price: <?php echo $sprice ?> USD</p>
+<p>Current Price: <?php echo $cprice ?> USD</p>
 <?php
     } else {
         echo "0 results";
@@ -301,7 +305,7 @@ if ($categorie == 1) {
 
 //output clothes
 if ($categorie == 2) {
-    $sql2 = "SELECT Gender, Categories, Size, Start_Time, End_Time, Start_Price, Status FROM Apparel, Bid_Item WHERE $itemid = Apparel.ItemID AND $itemid = Bid_Item.ItemID";
+    $sql2 = "SELECT Gender, Categories, Size, Start_Time, End_Time, Start_Price, Status, MAX(Price) FROM Apparel, Bid_Item, Bid, Bid_Contains WHERE $itemid = Apparel.ItemID AND $itemid = Bid_Item.ItemID AND $itemid = Bid_Contains.ItemID AND Bid_Contains.BidID = Bid.BidID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
@@ -312,6 +316,7 @@ if ($categorie == 2) {
             $etime = $row2["End_Time"];
             $sprice = $row2["Start_Price"];
             $status = $row2["Status"];
+            $cprice = $row2["MAX(Price)"];
         }
 ?>
 <div class="div2">
@@ -324,6 +329,7 @@ if ($categorie == 2) {
 <p>Start Time: <?php $stime ?></p>
 <p>End Time: <?php $etime ?></p>
 <p>Starting Price: <?php echo $sprice ?> USD</p>
+<p>Current Price: <?php echo $cprice ?> USD</p>
 <?php
     } else {
         echo "0 results";
@@ -331,7 +337,9 @@ if ($categorie == 2) {
 }
 mysqli_close($conn);
 ?>
-<p>Your Bid: <input type="text"> <input type="button" value="Bid"></p>
+<form action="phpfunctions/new_bid.php?item=<?php echo $itemid ?>" method="post">
+Your Bid: <input type="text" name="bid"> <button type="submit" name="sub" value="Bid">Bid
+</form>
 </div>
 </body>
 </html>
