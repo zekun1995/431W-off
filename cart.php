@@ -1,61 +1,6 @@
-// JavaScript Document
-var cookisObj = {
-	/*add or update cookie
-	set function: {o}
-	name: string cookie
-	value:string cookie
-	expires:date
-	path:string
-	domain: string
-	secure:boolean true https, false or undeinfed
-	*/
-	set: function(o){
-		var cookieStr = encodeURIComponent(o.name) + "=" + encodeURIComponent(o.value);
-		if(o.expires){
-			cookieStr += ";expires=" + o.expires;
-		}
-		if(o.path){
-			cookieStr += ";path=" + o.path;
-		}
-		if(o.domain){
-			cookieStr +=";domain=" + o.domain;
-		}
-		if(o.secure){
-			cookieStr += ";secure";
-		}
-		decument.cookie = cookieStr;
-	},
-	/*
-	delete
-	n string cookie's name
-	*/
-	del: function(n){
-		var date = new Date();
-		date.setHours(-1);
-		this.set({
-			name:n,
-			expires: date
-		});
-	},
-	/*get*/
-	get: function(n){
-		n = encodeURIComponent(n);
-		var cookieTotal = document.cookie;
-		var cookies = cookieTotal.split("; ");
-		for(var i = 0, len = cookies.length; i < len; i++){
-			var arr = cookies[i].split("=");
-			if(n==arr[0]){
-				return decodeURIComponent(arr[1]);
-			}
-		}
-	}
-				
-	
-}
-
 <?php
 session_start();
-$ids = $_GET["ids"];
+$ids = $_GET["item"];
 if(empty($_SESSION["gwc"]))
 {
  //1.购物车是空的，第一次点击添加购物车
@@ -97,7 +42,7 @@ else
  $_SESSION["gwc"] = $arr;
  }
 }
->
+?>
 
 <h2>购物车中有以下商品：</h2>
 <table cellpadding="0" cellspacing="0" border="1" width="100%">
@@ -115,12 +60,11 @@ else
  {
  $arr=$_SESSION["gwc"];
  }
- include("DADB.class.php");
- $db=new DADB();
+ 
  foreach($arr as $v)
  {
  global $db;
- $sql="select * from fruit where ids='{$v[0]}'";
+ $sql="select * from items where ids='{$v[0]}'";
  $att=$db -> Query($sql,1);
  foreach($att as $n)
  {

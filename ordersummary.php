@@ -12,7 +12,7 @@
 
 .divpf{
 	position:fixed;
-	width:200px;
+	width:500px;
 	margin: 10px 20px;
 	background:#E8E8E8;
 	right:1%;
@@ -89,7 +89,15 @@ Expiration:
 
 <div class="divpf">
 
-	<font style = "font-size:18pt">Order Summary</font>
+    <div class="table-responsive">  
+       <table class="table table-bordered">  
+          
+            <?php   
+            error_reporting(0);
+            include('index2.php');
+            ?>  
+       </table>  
+      </div> 
 
 </div>
 </body>

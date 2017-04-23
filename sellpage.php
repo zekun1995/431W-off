@@ -124,6 +124,7 @@ body {
 }
 
 </style>
+<script type="text/javascript" src="cookie.js"></script>
 </head>
 <body>
 
@@ -301,13 +302,15 @@ if ($categorie == 2) {
         }
 ?>
 <div class="div2">
-<p><?php echo $name ?></p>
-<p>Categorie: <?php echo $categories ?></p>
-<a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
-<p>Gender: <?php echo $gender?></p>
-<p>Size: <?php echo $size?></p>
-<p>Info: <br><?php echo $info; ?></p>
-<p>Price: <?php echo $price ?> USD</p>
+<div class="list">
+<dl pid="<?php echo $itemid?>">
+<dd><?php echo $name ?></dd>
+<dd>Categorie: <?php echo $categories ?></dd>
+<dt><a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a></dt>
+<dd>Gender: <?php echo $gender?></dd>
+<dd>Size: <?php echo $size?></dd>
+<dd>Info: <br><?php echo $info; ?></dd>
+<dd>Price: <?php echo $price ?> USD</dd>
 <?php
     } else {
         echo "0 results";
@@ -315,7 +318,13 @@ if ($categorie == 2) {
 }
 mysqli_close($conn);
 ?>
-<input type="button" value="Buy">
+<script type="text/javascript" src="server.js"></script>
+<script type="text/javascript" src="index.js"></script>
+<form method="post" action="index2.php?id=<?php echo $itemid?>">
+    <button type="submit" name="submit value="Buy">Buy</button>
+</form>
+</dl>
 </div>
+</div>`
 </body>
 </html>
