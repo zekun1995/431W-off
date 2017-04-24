@@ -1,3 +1,69 @@
+<?php
+session_start();  
+
+$servername = "localhost:3306";
+$username = "root";
+$password = "lollipop";
+$dbname = "tester";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+   
+error_reporting(0);
+$id = $_GET["id"];
+
+if(isset($_POST["add_to_cart"]))  
+{  
+    if(isset($_SESSION["shopping_cart"]))  
+    {  
+         $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");  
+         if(!in_array($_GET["id"], $item_array_id))  
+         {  
+              $count = count($_SESSION["shopping_cart"]);  
+              $item_array = array(  
+                   'item_id'               =>     $_GET["id"],  
+                   'item_name'               =>     $_POST["hidden_name"],  
+                   'item_price'          =>     $_POST["hidden_price"],  
+                   'item_quantity'          =>     $_POST["quantity"]  
+              );  
+              $_SESSION["shopping_cart"][$count] = $item_array;  
+         }  
+         else  
+         {  
+              echo '<script>alert("Item Already Added")</script>';  
+              echo '<script>window.location="index2.php?id=$id"</script>';  
+         }  
+    }  
+    else  
+    {  
+         $item_array = array(  
+              'item_id'               =>     $_GET["id"],  
+              'item_name'               =>     $_POST["hidden_name"],  
+              'item_price'          =>     $_POST["hidden_price"],  
+              'item_quantity'          =>     $_POST["quantity"]  
+         );  
+         $_SESSION["shopping_cart"][0] = $item_array;  
+    }  
+}  
+if(isset($_GET["action"]))  
+{  
+    if($_GET["action"] == "delete")  
+    {  
+         foreach($_SESSION["shopping_cart"] as $keys => $values)  
+         {  
+              if($values["item_id"] == $_GET["id"])  
+              {  
+                   unset($_SESSION["shopping_cart"][$keys]);  
+                   echo '<script>alert("Item Removed")</script>';  
+                   echo '<script>window.location="index2.php"</script>';  
+              }  
+         }  
+    }  
+}  
+?>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -22,22 +88,22 @@
 </head>
 
 <body>
-
+<form method="post" action="phpfunctions/addorder.php">
 <div class = "header">
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">1. Shipping Address</font></p>
 </div>
 
-<span class = "front_input">Name:</span><input id="email" type = "text" class = "_input"  /><br />
+<span class = "front_input">Name:</span><input id="name" type = "text" class = "_input"  /><br />
     
-    <span class = "front_input">Address:</span><input id = "pass" type = "password" class="_input" /><br/>
+    <span class = "front_input">Address:</span><input id = "address" type = "password" class="_input" /><br/>
 
-    <span class = "front_input">City:</span><input id = "rpass" type = "password" class = "_input" /><br />
+    <span class = "front_input">City:</span><input id = "city" type = "password" class = "_input" /><br />
   
-    <span class = "front_input">State:</span><input id = "mobile" type = "text" class = "_input" /><br />
+    <span class = "front_input">State:</span><input id = "state" type = "text" class = "_input" /><br />
     
-    <span class = "front_input">Zip code:</span><input id = "age" type = "text" class = "_input" /><br />
+    <span class = "front_input">Zip code:</span><input id = "zip" type = "text" class = "_input" /><br />
    
-    <span class = "front_input">Phone:</span><input id = "gender" type = "text" class = "_input" /><br />
+    <span class = "front_input">Phone:</span><input id = "phone" type = "text" class = "_input" /><br />
     
     <div class = "header">
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">2. Shipping Options</font></p>
@@ -53,7 +119,7 @@
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">3. Payment Method</font></p>
 </div>
 
-<span class = "front_input">Card number:</span><input id = "mobile" type = "text" class = "_input" /><br />
+<span class = "front_input">Card number:</span><input id = "cardnum" type = "text" class = "_input" /><br />
 Expiration:
     <select name="sel">
     <option value="1">01</option>
@@ -84,17 +150,20 @@ Expiration:
     <option value="11">2027</option>
     <option value="12">2028</option>
 </select><br />
-    <span class = "front_input">CVV/CVC:</span><input id = "age" type = "text" class = "_input" /><br />
+    <span class = "front_input">CVV/CVC:</span><input id = "cvv" type = "text" class = "_input" /><br />
     <span class = "front_input">Name:</span><input id = "mobile" type = "text" class = "_input" /><br />
+    
+    <br><button type="submit" name ="submit">Buy!!!</button>
+    </form>
 
 <div class="divpf">
 
     <div class="table-responsive">  
        <table class="table table-bordered">  
           
-            <?php   
-            error_reporting(0);
-            include('index2.php');
+            <?php
+            include('checkout.php');
+            checkoutpage();
             ?>  
        </table>  
       </div> 
