@@ -340,7 +340,7 @@ if ($categorie == 2) {
 mysqli_close($conn);
 ?>
 
-
+<form method="POST" action="phpfunctions/commentsubmit.php?itemid=<?php echo $itemid?>">
 <p>Star Rating:</p>
 <span class="rating">
     <input type="radio" class="rating-input"
@@ -363,8 +363,8 @@ mysqli_close($conn);
 <textarea name="comments" rows="15" cols="50">
 </textarea>
 
-<form>
-  <input type="button" value="Submit" onclick="msg()">
+
+  <button type="submit" value="Submit" onclick="msg()">Submit</Button>
 </form>
 
 <script>
