@@ -279,6 +279,7 @@ mysqli_close($conn);
 <div class="div2">
 <p><b><font size="+2"> Edit your information:</font></b></p>
 <a href="phpfunctions/show_orders.php?id=<?php echo $cusid ?>"> Your Orders</a><br><br>
+<a href="add_item.html"> Add an Item</a>
 </div>
 
 </body>
