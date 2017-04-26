@@ -342,6 +342,8 @@ if ($categorie == 2) {
             <p><?php echo $feedback ?></p>
             <?php
         }
+    } else {
+        echo "No Feedback Yet!";
     }
     mysqli_close($conn);
 ?>

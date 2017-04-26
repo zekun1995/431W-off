@@ -30,6 +30,8 @@ if(strlen($query) >= $min_length){
 	}
 	else{
 		echo "No results";
+		exit('<p>Click here to <a href = "javascript:history.back(-1);">get back</a></p>');
+
 	}
 }
 else{
