@@ -122,7 +122,12 @@ body {
 	float: left;
 	
 }
-
+.div3 {
+    width: 320px;
+    padding: 10px;
+    border: 5px solid grey;
+    margin: 0;
+}
 </style>
 <script type="text/javascript" src="cookie.js"></script>
 </head>
@@ -318,15 +323,31 @@ if ($categorie == 2) {
         echo "0 results";
     }
 }
-mysqli_close($conn);
+
 ?>
 <script type="text/javascript" src="server.js"></script>
 <script type="text/javascript" src="index.js"></script>
 <form method="post" action="index2.php?id=<?php echo $itemid?>">
     <button type="submit" name="submit value="Buy">Buy</button>
 </form>
+<div class="div3">
+<p><b><font size="+2">Feedback:</font></b></p>
+<?php
+    $sql3 = "SELECT Feedback_Info FROM Gives_Feedback WHERE $itemid = Gives_Feedback.ItemID";
+    $result3 = mysqli_query($conn, $sql3);
+    if (mysqli_num_rows($result3) > 0) {
+        while($row3 = mysqli_fetch_assoc($result3)) {
+            $feedback = $row3["Feedback_Info"];
+            ?>
+            <p><?php echo $feedback ?></p>
+            <?php
+        }
+    }
+    mysqli_close($conn);
+?>
 </dl>
 </div>
-</div>`
+</div>
+</div>
 </body>
 </html>
