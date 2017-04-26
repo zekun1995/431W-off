@@ -149,16 +149,18 @@ if ($conn->connect_error) {
 
 $id = $_GET["id"];
 
-$sql = "SELECT Orders.OrderID, Qty, Order_Date, Ship_Date FROM Orders, Cus_Place_Ord WHERE Cus_Place_Ord.CustomerID = '$id' AND Cus_Place_Ord.OrderID = Orders.OrderID";
+$sql = "SELECT Orders.OrderID, Qty, Order_Date, Ship_Date, ItemID FROM Orders, Cus_Place_Ord, order_contains WHERE Cus_Place_Ord.CustomerID = '$id' AND Cus_Place_Ord.OrderID = Orders.OrderID and Cus_Place_Ord.OrderID = order_contains.orderID";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0){
     ?>
     <table>
             <tr align="center">
-                <th>Qrder Number</th>
+                <th>Order Number</th>
+                <th>Item Number</th>
                 <th>Quantity</th>
                 <th>Order Date</th>
                 <th>Shipped Date</th>
+                <th>Feedback</th>
                 <th>Return</th>
             </tr>
     <?php
@@ -168,12 +170,15 @@ if(mysqli_num_rows($result) > 0){
         $qty = $row["Qty"];
         $odate = $row["Order_Date"];
         $sdate = $row["Ship_Date"];
+        $itemid = $row["ItemID"];
         ?>
             <tr align="center">
                 <td><?php echo $ordid ?></td>
+                <td><?php echo $itemid ?></td>
                 <td><?php echo $qty ?></td>
                 <td><?php echo $odate ?></td>
                 <td><?php echo $sdate ?></td>
+                <td><a href="../Feedback.php?itemid=<?php echo $itemid ?>">Feedback</a></td>
                 <td><a href="">Return</a></td>
             </tr>
         <?php

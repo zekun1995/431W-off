@@ -11,8 +11,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-   
-error_reporting(0);
+
 $id = $_GET["id"];
 
 if(isset($_POST["add_to_cart"]))  
@@ -88,7 +87,7 @@ if(isset($_GET["action"]))
 </head>
 
 <body>
-<form method="post" action="phpfunctions/addorder.php">
+<form method="post" action="phpfunctions/addorder.php?id=<?php echo $id ?>">
 <div class = "header">
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">1. Shipping Address</font></p>
 </div>

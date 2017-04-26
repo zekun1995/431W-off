@@ -294,7 +294,7 @@ body {
  <br /> 
 
  <form
- <form method="post" action="ordersummary.php">
+ <form method="post" action="checkoutlogin.html">
       <button type="submit" name="submit value="checkout">Check Out!</button>
   </form>
    </div>
