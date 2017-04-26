@@ -1,13 +1,15 @@
 <html>
 <head>
 <title>All Items</title>
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> 
 <style>
 @import url("../Sites/MHID_Project_2015 copy/style1.css");
- 
+ .Raleway{font-family:'Raleway'}
 body {
     background:#eee;
     margin:0;
     padding:0;
+    font-family: Raleway;
 }
 .example {
     background:#fff url(../images/tech.jpg);
@@ -222,23 +224,28 @@ if ($conn->connect_error) {
         <li><a href="register.html">Register</a></li>
     </ul>
 
+    <?php
+include("search.php");
+?>
+
 
 <div class="div1">
 <a href="all.php" rel="All" type="Categories">All</a><br>
 
 <?php
-$sql = "SELECT Name, Picture_Link FROM Item";
+$sql = "SELECT ItemID, Name, Picture_Link FROM Item";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
      // output data of each row
      while($row = mysqli_fetch_assoc($result)) {
+        $itemid = $row["ItemID"];
         $link = $row["Picture_Link"];
         $name = $row["Name"];
 ?>
 <div class="div2">
-<p><?php echo $name; ?></p>
-<img src="<?php echo $link; ?>" width="150" height="150"/>
+<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><?php echo $name; ?></a><br>
+<a href="phpfunctions/page_select.php?itemid=<?php echo $itemid ?>"><img src="<?php echo $link; ?>" width="150" height="150"/></a>
 </div>
 <?php
      }

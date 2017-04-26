@@ -5,6 +5,14 @@
 <style>
 @import url("../Sites/MHID_Project_2015 copy/style1.css");
  
+.button {
+                position:relative;
+                padding:6px 15px;
+                left:-8px;
+                border:2px solid #207cca;
+                /*background-color:#BCBCBC;*/
+                color:#fafafa;
+}
 body {
     background:#eee;
     margin:0;
@@ -116,7 +124,7 @@ body {
 }
 .div2 {
 	background-color:#F8F8F8;
-	/*width:2;*/
+	width:600;
 	margin: 10px 20px;
 	padding: 15px;
 	float: left;
@@ -262,13 +270,15 @@ if ($categorie == 0) {
             $categories = $row2["Categories"];
         }
 ?>
+<div class="div1">
+<a href="#"><img src="<?php echo $link ?>" width="300" height="350"/></a>
+</div>
 <div class="div2">
 <p><b><font size="+3"><?php echo $name ?></font></b></p>
 <p>Author: <?php echo $author ?></p>
 <p>Genre: <?php echo $categories ?></p>
-<a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
+<p>Price: <font color="red" size="+1">$<?php echo $price ?></font></p>
 <p>Info: <br><?php echo $info; ?></p>
-<p>Price: <?php echo $price ?> USD</p>
 <?php
     } else {
     echo "0 results";
@@ -328,7 +338,7 @@ if ($categorie == 2) {
 <script type="text/javascript" src="server.js"></script>
 <script type="text/javascript" src="index.js"></script>
 <form method="post" action="index2.php?id=<?php echo $itemid?>">
-    <button type="submit" name="submit value="Buy">Buy</button>
+    <button class="button" type="submit" name="submit value="Buy">Buy</button>
 </form>
 <div class="div3">
 <p><b><font size="+2">Feedback:</font></b></p>

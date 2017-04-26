@@ -5,6 +5,14 @@
 <style>
 @import url("../Sites/MHID_Project_2015 copy/style1.css");
  
+.button {
+                position:relative;
+                padding:6px 15px;
+                left:-8px;
+                border:2px solid #207cca;
+                /*background-color:#BCBCBC;*/
+                color:#fafafa;
+}
 body {
     background:#eee;
     margin:0;
@@ -116,7 +124,7 @@ body {
 }
 .div2 {
     background-color:#F8F8F8;
-    /*width:2;*/
+    width:600;
     margin: 10px 20px;
     padding: 15px;
     float: left;
@@ -257,19 +265,25 @@ if ($categorie == 0) {
             $etime = $row2["End_Time"];
             $sprice = $row2["Start_Price"];
             $status = $row2["Status"];
-            $cprice = $row2["MAX(Price)"];
+            if ($row2["MAX(Price)"] == null) {
+                $cprice = $sprice;
+            } else {
+                $cprice = $row2["MAX(Price)"];
+            }
         }
 ?>
+<div class="div1">
+<a href="#"><img src="<?php echo $link ?>" width="300" height="350"/></a>
+</div>
 <div class="div2">
 <p><b><font size="+3"><?php echo $name ?></font></b></p>
 <p>Author: <?php echo $author ?></p>
 <p>Genre: <?php echo $categories ?></p>
-<a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
 <p>Info: <br><?php echo $info; ?></p>
 <p>Start Time: <?php $stime ?></p>
 <p>End Time: <?php $etime ?></p>
-<p>Starting Price: <?php echo $sprice ?> USD</p>
-<p>Current Price: <?php echo $cprice ?> USD</p>
+<p>Starting Price: $<?php echo $sprice ?></p>
+<p>Current Price: $<?php echo $cprice ?></p>
 <?php
     } else {
     echo "0 results";

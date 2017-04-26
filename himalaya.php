@@ -2,13 +2,15 @@
 <head>
 <title>Himalaya</title>
 <link href="../Sites/MHID_Project_2015 copy/style1.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 <style>
 @import url("../Sites/MHID_Project_2015 copy/style1.css");
- 
+.Raleway{font-family:'Raleway'}
 body {
     background:#eee;
     margin:0;
     padding:0;
+    font-family: Raleway;
 }
 .example {
     background:#fff url(../images/tech.jpg);
