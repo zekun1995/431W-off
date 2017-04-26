@@ -222,6 +222,9 @@ if ($conn->connect_error) {
         <li><a href="login.html">Login</a></li>
         <li><a href="register.html">Register</a></li>
 	</ul>
+    <?php
+include("search.php");
+?>
 	</div>
 
 	<div class="div1">

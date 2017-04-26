@@ -226,6 +226,9 @@ $itemid = $_GET['itemid'];
         <li><a href="login.html">Login</a></li>
         <li><a href="register.html">Register</a></li>
 	</ul>
+    <?php
+include("search.php");
+?>
 
 <?php
 $sql = "SELECT Name, Info, Categorie, Picture_Link FROM Item WHERE $itemid = Item.ItemID";
@@ -278,7 +281,7 @@ if ($categorie == 1) {
         }
 ?>
 <div class="div2">
-<p><?php echo $name ?></p>
+<p><b><font size="+3"><?php echo $name ?></font></b></p>
 <p>Categorie: <?php echo $categories ?></p>
 <a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
 <p>Info: <br><?php echo $info; ?></p>
@@ -303,14 +306,13 @@ if ($categorie == 2) {
 ?>
 <div class="div2">
 <div class="list">
-<dl pid="<?php echo $itemid?>">
-<dd><?php echo $name ?></dd>
-<dd>Categorie: <?php echo $categories ?></dd>
-<dt><a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a></dt>
-<dd>Gender: <?php echo $gender?></dd>
-<dd>Size: <?php echo $size?></dd>
-<dd>Info: <br><?php echo $info; ?></dd>
-<dd>Price: <?php echo $price ?> USD</dd>
+<p><b><font size="+3"><?php echo $name ?></font></b></p>
+<p>Categorie: <?php echo $categories ?></p>
+<a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
+<p>Gender: <?php echo $gender?></p>
+<p>Size: <?php echo $size?></p>
+<p>Info: <br><?php echo $info; ?></p>
+<p>Price: <?php echo $price ?> USD</p>
 <?php
     } else {
         echo "0 results";

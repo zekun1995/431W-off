@@ -221,6 +221,9 @@ if ($conn->connect_error) {
         <li><a href="login.html">Login</a></li>
         <li><a href="register.html">Register</a></li>
     </ul>
+    <?php
+include("search.php");
+?>
 
 <div class="div1">
 <a href="Apparel.php" rel="Apparel" type="Categories"> Clothes </a><br>
