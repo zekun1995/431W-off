@@ -275,7 +275,6 @@ mysqli_close($conn);
 
 <div class="div2">
 <p><b><font size="+2"> Admin Functionality:</font></b></p>
-<a href="phpfunctions/salesreport.php">Sales Report</a><br><br>
 <a href="phpfunctions/telemarketreport.php">Telemarketer Information</a><br><br>
 </div>
 
