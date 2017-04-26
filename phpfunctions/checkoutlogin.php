@@ -32,7 +32,7 @@ if(mysqli_num_rows($result) > 0){
 			<br>Welcome! <a href = "../admin.php?id=<?php echo $id ?>">User Account</a><br/>
 			<?php
 			echo 'Click here to <a href = "../login.html?action=logout">Logout</a><br/>';
-			echo 'The webpage will redirect you to user center in 3 seconds.';
+			echo 'The webpage will redirect you to checkout in 3 seconds.';
 			exit;
 
 		} else {
@@ -42,7 +42,7 @@ if(mysqli_num_rows($result) > 0){
 			<br>Welcome! <a href = "../ordersummary.php?id=<?php echo $id ?>">User Account</a><br/>
 			<?php
 			echo 'Click here to <a href = "../login.html?action=logout">Logout</a><br/>';
-			echo 'The webpage will redirect you to user center in 3 seconds.';
+			echo 'The webpage will redirect you to checkout in 3 seconds.';
 			exit;
 		}
 		
