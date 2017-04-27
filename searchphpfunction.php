@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$query = $_GET['query'];
+$query = $_GET["query"];
 
 $min_length = 3;
 if(strlen($query) >= $min_length){

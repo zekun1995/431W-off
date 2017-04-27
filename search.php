@@ -25,7 +25,7 @@ form {
 <body>
 <form action = "searchphpfunction.php" method = "GET">
  	<input type = "text" class = "search" name = "query">
-	<input type = "button" class="button" value = "Search">
+	<input type = "submit" class="button" value = "Search">
 </form>
 
 </body>
