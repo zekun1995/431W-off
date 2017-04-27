@@ -284,7 +284,7 @@ if ($categorie == 0) {
 <p>Start Time: <?php $stime ?></p>
 <p>End Time: <?php $etime ?></p>
 <p>Starting Price: $<?php echo $sprice ?></p>
-<p>Current Price: $<?php echo $cprice ?></p>
+<p>Current Price: <font color="red" size="+1">$<?php echo $cprice ?></font></p>
 <?php
     } else {
     echo "0 results";
@@ -320,7 +320,7 @@ if ($categorie == 1) {
 <p>Start Time: <?php $stime ?></p>
 <p>End Time: <?php $etime ?></p>
 <p>Starting Price: $<?php echo $sprice ?></p>
-<p>Current Price: $<?php echo $cprice ?></p>
+<p>Current Price: <font color="red" size="+1">$<?php echo $cprice ?></font></p>
 <?php
     } else {
         echo "0 results";
@@ -359,7 +359,7 @@ if ($categorie == 2) {
 <p>Start Time: <?php $stime ?></p>
 <p>End Time: <?php $etime ?></p>
 <p>Starting Price: $<?php echo $sprice ?></p>
-<p>Current Price: $<?php echo $cprice ?></p>
+<p>Current Price: <font color="red" size="+1">$<?php echo $cprice ?></font></p>
 <?php
     } else {
         echo "0 results";

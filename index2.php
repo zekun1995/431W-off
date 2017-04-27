@@ -161,6 +161,15 @@ body {
     #nav li a:focus {
     outline-width:0;
 }
+
+/*popups*/
+#nav li a:active + ul.dd,#nav li a:focus + ul.dd,#nav li ul.dd:hover {
+    left:0;
+}
+#nav ul.dd li a:active + ul,#nav ul.dd li a:focus + ul,#nav ul.dd li ul:hover {
+    left:140px;
+}
+
 .div1 {
   background-color:#F8F8F8;
   /*width:2;*/
@@ -182,11 +191,12 @@ body {
 
 <body>
  <div class = "example">
-    <ul id = "nav">
-      <li><a href="../himalaya.php">Home</a></li>
-      <li><a href="all.php">All</a></li>
+  <ul id = "nav">
+      <li><a href="himalaya.php">Home</a></li>
+        <li><a href="all.php">All</a></li>
     <li><a class = "fly" href="#">Books</a>
           <ul class = "dd">
+                <li><a href="book.php">All</a></li>
               <li><a href=" ">Fiction</a></li>
                 <li><a href=" ">Non-Fiction</a></li>
                 <li><a href=" ">Science Fiction</a></li>
@@ -196,16 +206,17 @@ body {
     </li>
         <li><a class = "fly" href="#">Technology</a>
           <ul class = "dd">
+                <li><a href="tech.php">All</a></li>
               <li><a href=" ">Computer</a></li>
                 <li><a href=" ">Coffee Machine</a></li>
                 <li><a href=" ">Mobile Phone</a></li>
-                <li><a href=" ">Portabe Heater</a></li>
+                <li><a href=" ">Television</a></li>
                 <li><a href=" ">Kindle</a></li>
         </ul>
-    </li>
         </li>
         <li><a class = "fly" href="#">Clothes</a>
           <ul class = "dd">
+                <li><a href="apparel.php">All</a></li>
               <li><a class = "fly" href="#">Men</a>
                   <ul>
                       <li><a class = "fly" href="#">Top</a>
