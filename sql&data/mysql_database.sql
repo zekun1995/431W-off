@@ -36,7 +36,7 @@ CREATE TABLE Seller (
 CREATE TABLE Item (
 	ItemID INTEGER NOT NULL,
 	Name VARCHAR(255) NOT NULL,
-	Info VARCHAR (511),
+	Info VARCHAR (5000),
 	Sell_Method INTEGER NOT NULL, /* 0 is sell, 1 is bid*/
 	Categorie INTEGER NOT NULL, /*0 books, 1 Technology, 2 Apparel*/
     Picture_Link VARCHAR(255),
@@ -330,7 +330,14 @@ VALUES ('Very Fast', 'very_fast@gmail.com', '814-312-4123'),
 
 INSERT INTO Item(ItemID, Name, Info, Sell_Method, Categorie, Picture_Link)
 VALUES(0000, 'The Book of the Unnamed Midwife', 'When she fell asleep, the world was doomed. When she awoke, it was dead.', 1, 0, 'images/Books/scifi/the book of the unnamed midwife.jpg'),
-	  (0001, 'Deaths End', 'The New York Times bestselling conclusion to a tour de force near-future adventure trilogy from Chinas bestselling and beloved science fiction writer.', 0, 0, 'images/Books/scifi/deaths end.jpg'),
+	  (0001, 'Deaths End', '<b>The New York Times bestselling conclusion to a tour de force near-future adventure trilogy from Chinas bestselling and beloved science fiction writer.</b><br><br>
+      With The Three-Body Problem, English-speaking readers got their first chance to read Chinas most beloved science fiction author, Cixin Liu. The Three-Body Problem was released to great acclaim including coverage in The New York Times and The Wall Street Journal and reading list picks by Barack Obama and Mark Zuckerberg. It was also won the Hugo and Nebula Awards, making it the first translated novel to win a major SF award.<br><br>
+      Now this epic trilogy concludes with Deaths End. Half a century after the Doomsday Battle, the uneasy balance of Dark Forest Deterrence keeps the Trisolaran invaders at bay. Earth enjoys unprecedented prosperity due to the infusion of Trisolaran knowledge. With human science advancing daily and the Trisolarans adopting Earth culture, it seems that the two civilizations will soon be able to co-exist peacefully as equals without the terrible threat of mutually assured annihilation. But the peace has also made humanity complacent.<br><br>
+      Cheng Xin, an aerospace engineer from the early twenty-first century, awakens from hibernation in this new age. She brings with her knowledge of a long-forgotten program dating from the beginning of the Trisolar Crisis, and her very presence may upset the delicate balance between two worlds. Will humanity reach for the stars or die in its cradle?<br><br>
+      <b><u>The Remembrance of Earths Past Trilogy</u></b><br>
+      The Three-Body Problem<br>
+      The Dark Forest<br>
+      Deaths End', 0, 0, 'images/Books/scifi/deaths end.jpg'),
 	  (0002, 'The Obelisk Gate (The Broken Earth)', 'This is the way the world ends, for the last time. The season of endings grows darker, as civilization fades into the long cold night.', 0, 0, 'images/Books/scifi/the obelisk gate.jpg'),
 	  (0003, 'All the Birds in the Sky', 'From the former editor-in-chief of io9.com, a stunning novel about the end of the world―and the beginning of our future', 0, 0, 'images/Books/scifi/all the birds in the sky.jpg'),
 	  (0004, 'The Invisible Library', 'Collecting books can be a dangerous prospect in this fun, time-traveling, fantasy adventure from a spectacular debut author.', 0, 0, 'images/Books/scifi/the invisible library.jpg'),
