@@ -92,6 +92,13 @@ select {
 	right:1%;
 	top:20%;
 }
+	
+label{
+display:inline-block;
+width:200px;
+margin-right:30px;
+text-align:right;
+}
 </style>
 </head>
 
@@ -101,17 +108,17 @@ select {
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">1. Shipping Address</font></p>
 </div>
 
-<span class = "front_input">Name:</span><input id="name" type = "text" class = "_input"  required/><br />
+<label><span class = "front_input">Name:</span><input id="name" type = "text" class = "_input"  required/></label><br />
     
-    <span class = "front_input">Address:</span><input id = "address" type = "password" class="_input" required/><br/>
+    <label><span class = "front_input">Address:</span><input id = "address" type = "password" class="_input" required/></label><br/>
 
-    <span class = "front_input">City:</span><input id = "city" type = "password" class = "_input" required/><br />
+    <label><span class = "front_input">City:</span><input id = "city" type = "password" class = "_input" required/></label><br />
   
-    <span class = "front_input">State:</span><input id = "state" type = "text" class = "_input" required/><br />
+    <label><span class = "front_input">State:</span><input id = "state" type = "text" class = "_input" required/></label><br />
     
-    <span class = "front_input">Zip code:</span><input id = "zip" type = "text" class = "_input" required/><br />
+    <label><span class = "front_input">Zip code:</span><input id = "zip" type = "text" class = "_input" required/></label><br />
    
-    <span class = "front_input">Phone:</span><input id = "phone" type = "text" class = "_input" required/><br />
+    <label><span class = "front_input">Phone:</span><input id = "phone" type = "text" class = "_input" required/></label><br />
     
     <div class = "header">
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">2. Shipping Options</font></p>
