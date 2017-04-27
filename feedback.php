@@ -171,6 +171,7 @@ $itemid = $_GET['itemid'];
 <div class = "example">
 	<ul id = "nav">
     	<li><a href="himalaya.php">Home</a></li>
+        <li><a href="all.php">All</a></li>
 		<li><a class = "fly" href="#">Books</a>
         	<ul class = "dd">
                 <li><a href="book.php">All</a></li>
