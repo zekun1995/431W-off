@@ -179,7 +179,7 @@ if(mysqli_num_rows($result) > 0){
                 <td><?php echo $odate ?></td>
                 <td><?php echo $sdate ?></td>
                 <td><a href="../Feedback.php?itemid=<?php echo $itemid ?>">Feedback</a></td>
-                <td><a href="">Return</a></td>
+                <td><a href="return.php?orderid=<?php echo $ordid ?>&itemid=<?php echo $itemid ?>&qty=<?php echo $qty ?>">Return</a></td>
             </tr>
         <?php
     }
