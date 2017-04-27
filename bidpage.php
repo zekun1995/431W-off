@@ -319,7 +319,7 @@ if ($categorie == 1) {
         }
 ?>
 <div class="div1">
-<a href="#"><img src="<?php echo $link ?>" width="300" height="350"/></a>
+<a href="#"><img src="<?php echo $link ?>" width="450" height="350"/></a>
 </div>
 <div class="div2">
 <p><b><font size="+3"><?php echo $name ?></font></b></p>

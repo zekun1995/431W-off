@@ -39,7 +39,7 @@ if(mysqli_num_rows($result) > 0){
 			header( "refresh:3;url=../ordersummary.php?id=$id");
 			echo $emailid;
 			?>
-			<br>Welcome! <a href = "../ordersummary.php?id=<?php echo $id ?>">User Account</a><br/>
+			<br>Welcome! <a href = "../ordersummary.php?id=<?php echo $id ?>">Check Out Page</a><br/>
 			<?php
 			echo 'Click here to <a href = "../login.html?action=logout">Logout</a><br/>';
 			echo 'The webpage will redirect you to checkout in 3 seconds.';

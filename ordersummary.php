@@ -97,7 +97,7 @@ label{
 display:inline-block;
 width:200px;
 margin-right:30px;
-text-align:right;
+/*text-align:right;*/
 }
 </style>
 </head>
