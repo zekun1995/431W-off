@@ -279,7 +279,7 @@ if ($categorie == 0) {
 <p><b><font size="+3"><?php echo $name ?></font></b></p>
 <p>Author: <?php echo $author ?></p>
 <p>Genre: <?php echo $categories ?></p>
-<p>Price: <font color="red" size="+1">$<?php echo $price ?></font></p>
+<p>Price: <font color="red" size="+1">$<?php echo number_format($price,2) ?></font></p>
 <p>Info: <br><?php echo $info; ?></p>
 <?php
     } else {
@@ -304,7 +304,7 @@ if ($categorie == 1) {
 <div class="div2">
 <p><b><font size="+3"><?php echo $name ?></font></b></p>
 <p>Categorie: <?php echo $categories ?></p>
-<p>Price: <font color="red" size="+1">$<?php echo $price ?></font></p>
+<p>Price: <font color="red" size="+1">$<?php echo number_format($price,2) ?></font></p>
 <p>Info: <br><?php echo $info; ?></p>
 <?php
     } else {
@@ -333,7 +333,7 @@ if ($categorie == 2) {
 <p>Categorie: <?php echo $categories ?></p>
 <p>Gender: <?php echo $gender?></p>
 <p>Size: <?php echo $size?></p>
-<p>Price: <font color="red" size="+1">$<?php echo $price ?></font></p>
+<p>Price: <font color="red" size="+1">$<?php echo number_format($price,2) ?></font></p>
 <p>Info: <br><?php echo $info; ?></p>
 <?php
     } else {

@@ -68,13 +68,16 @@ $cusid = $_GET["id"];
       $query = ("UPDATE Sell_Item SET Qty = Qty - $qty WHERE Sell_Item.ItemID = $itemid");
       mysqli_query($conn, $query);
 
+      unset($_SESSION["shopping_cart"][$keys]); 
+
       echo "<p>You have placed your order!!!</p>";
       echo "Your order ID: ", $id;
 
       header("Location: ../userProfile.php?id=$cusid");
-
 		}
-	}
+	} else {
+    echo "FATAL ERRORRR!";
+  }
 
 	//Close connection
 	mysqli_close($conn);
