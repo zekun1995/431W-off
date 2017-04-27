@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head>     
+<title>Register！</title>    
+<style>          
+ul {list-style-type:none;}     
+ul li {margin-bottom:15px;}          
+.front_input {width:150px;display:block;text-align:right;}     
+.front_input,ul li input {float:left;}
+.after_input {margin-left:5px;color:#FF0000;font-size:14px;folat:left;}     
+ul input {width:200px;height:18px;}     
+.front_input {clear:both;}    
+</style>
+<link href="style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+@import url("../Sites/MHID_Project_2015 copy/style1.css");
+body {
+    background:#eee;
+    margin:0;
+    padding:0;
+}
+.example {
+    background:#fff url(../images/tech.jpg);
+    /*width:770px;
+    height:570px;
+    border:1px #000 solid;*/
+    margin:20px auto;
+    padding:15px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+/* main menu styles */
+#nav,#nav ul {
+    background-image:url(../images/tr75.png);
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#nav {
+    height:41px;
+    padding-left:5px;
+    padding-top:5px;
+    position:relative;
+    z-index:2;
+}
+#nav ul {
+    left:-9999px;
+    position:absolute;
+    top:37px;
+    width:auto;
+}
+#nav ul ul {
+    left:-9999px;
+    position:absolute;
+    top:0;
+    width:auto;
+}
+#nav li {
+    float:left;
+    margin-right:5px;
+    position:relative;
+}
+#nav li a {
+	
+    background:#c1c1bf;
+    color:#000;
+    display:block;
+    float:left;
+    font-size:16px;
+    padding:8px 10px;
+    text-decoration:none;
+}
+#nav > li > a {
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    -o-border-radius:6px;
+    border-radius:6px;
+
+    overflow:hidden;
+}
+#nav li a.fly {
+	margin:0 auto; 
+    background:#c1c1bf url(../images/arrow.gif) no-repeat right center;
+    padding-right:15px;
+}
+#nav ul li {
+    margin:0;
+}
+#nav ul li a {
+    width:120px;
+}
+#nav ul li a.fly {
+    padding-right:10px;
+}
+
+/*hover styles*/
+#nav li:hover > a {
+	
+    background-color:#858180;
+    color:#fff;
+}
+
+/*focus styles*/
+    #nav li a:focus {
+    outline-width:0;
+}
+
+/*popups*/
+#nav li a:active + ul.dd,#nav li a:focus + ul.dd,#nav li ul.dd:hover {
+    left:0;
+}
+#nav ul.dd li a:active + ul,#nav ul.dd li a:focus + ul,#nav ul.dd li ul:hover {
+    left:140px;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
+pre, form, fieldset, input, textarea, p, blockquote, th, td { 
+  padding:0;
+  margin:0;}
+
+fieldset, img {border:0}
+
+ol, ul, li {list-style:none}
+
+:focus {outline:none}
+
+body,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4c4c4c;
+}
+
+p {
+  font-size: 12px;
+  width: 150px;
+  display: inline-block;
+  margin-left: 18px;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 300;
+  color: #4c4c4c;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+html{
+  background-color: #ffffff;
+}
+
+.testbox {
+  margin: 20px auto;
+  width: 343px; 
+  height: 464px; 
+  -webkit-border-radius: 8px/7px; 
+  -moz-border-radius: 8px/7px; 
+  border-radius: 8px/7px; 
+  background-color: #ebebeb; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+}
+
+input[type=radio] {
+  visibility: hidden;
+}
+
+form{
+  margin: 0 30px;
+}
+
+label.radio {
+	cursor: pointer;
+  text-indent: 35px;
+  overflow: visible;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+label.radio:before {
+  background: #3a57af;
+  content:'';
+  position: absolute;
+  top:2px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+label.radio:after {
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 0.5em;
+	height: 0.25em;
+	background: transparent;
+	top: 7.5px;
+	left: 4.5px;
+	border: 3px solid #ffffff;
+	border-top: none;
+	border-right: none;
+
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+input[type=radio]:checked + label:after {
+	opacity: 1;
+}
+
+hr{
+  color: #a9a9a9;
+  opacity: 0.3;
+}
+
+input[type=text],input[type=password]{
+  width: 200px; 
+  height: 39px; 
+  -webkit-border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
+  -moz-border-radius: 0px 4px 4px 0px/0px 0px 4px 4px; 
+  border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
+  background-color: #fff; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  border: solid 1px #cbc9c9;
+  margin-left: -5px;
+  margin-top: 13px; 
+  padding-left: 10px;
+}
+
+input[type=password]{
+  margin-bottom: 25px;
+}
+
+#icon {
+  display: inline-block;
+  width: 100px;
+  background-color: #3a57af;
+  padding: 8px 0px 8px 15px;
+  margin-left: 15px;
+  -webkit-border-radius: 4px 0px 0px 4px; 
+  -moz-border-radius: 4px 0px 0px 4px; 
+  border-radius: 4px 0px 0px 4px;
+  color: white;
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09);
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  border: solid 0px #cbc9c9;
+}
+
+.accounttype{
+  margin-left: 8px;
+  margin-top: 20px;
+}
+
+a.button {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  padding: 6px 25px 0px 20px;
+  margin: 10px 8px 20px 0px;
+  display: inline-block;
+  float: right;
+  text-decoration: none;
+  width: 50px; height: 27px; 
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px; 
+  background-color: #3a57af; 
+  -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
+  -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
+  box-shadow: 0 3px rgba(58,87,175,.75);
+  transition: all 0.1s linear 0s; 
+  top: 0px;
+  position: relative;
+}
+
+a.button:hover {
+  top: 3px;
+  background-color:#2e458b;
+  -webkit-box-shadow: none; 
+  -moz-box-shadow: none; 
+  box-shadow: none;
+  
+}
+
+</style>
+<script type="text/javascript">     
+var _pass;     
+/**      *Check user name        */      
+String.prototype.Trim = function() {      
+return this.replace(/(^\s*)|(\s*$)/g, ""); }      //---------------------------------------------------------------------------     
+ 
+		  /**      *check password    */      //---------------------------------------------------------------------------     
+		  function check_pass(){      
+		  var pass;       
+		  pass = document.getElementById('pass').value;      
+		  pass = pass.Trim();      
+		  _pass = pass;      
+		  if (pass == "") {        
+		  document.getElementById('pass_error').innerHTML = "Password cannot be null"; 
+
+      		} 
+			else {         
+				if (/^\w{6,20}$/.test(pass)) {          
+					document.getElementById('pass_error').innerHTML = "";         	} 
+				else {          
+					document.getElementById('pass_error').innerHTML = "6 ~ 20 character【0-9】【a-z-A-Z】";         
+				}             
+			}      
+		}     
+		/**      *check Email     */      //---------------------------------------------------------------------------     
+		function check_email(){      
+			var email;       
+			email = document.getElementById('email').value;      
+			email = email.Trim();      
+			if (email == "") {        
+				document.getElementById('email_error').innerHTML = "Email";       
+			} 
+			else {         
+				if (/^[\w-]+[\.]*[\w-]+[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$/.test(email)) {         
+					document.getElementById('email_error').innerHTML = "";         
+					} 
+					else {          
+						document.getElementById('email_error').innerHTML = "Email";         
+						}             
+					}      
+				}         
+/**      *check rpass     */      //---------------------------------------------------------------------------     
+function check_rpass(){      
+	var rpass;       
+	rpass = document.getElementById('rpass').value;      
+	rpass = rpass.Trim();      
+	if (rpass == "") {        
+		document.getElementById('rpass_error').innerHTML = "re-enter passwrd cannot be null";       
+		}        
+		else if (rpass != _pass) {        
+			document.getElementById('rpass_error').innerHTML = "Password is different";       
+			}      
+		else {        
+			document.getElementById('rpass_error').innerHTML = ""
+ 		}         
+	}         
+	//check phone:  
+	function mobile(){    
+		var mobile;   
+		mobile = document.getElementById('mobile').value;      
+		mobile = mobile.Trim();             
+		if(mobile.length==0)         {   
+			document.getElementById('iphone_error').innerHTML = "Please enter password";                    
+			}              
+			if(mobile.length!=10)         {   
+			document.getElementById('iphone_error').innerHTML = "Please re-enter your phone number";                    
+			}          
+			else {        
+				document.getElementById('iphone_error').innerHTML = ""       		}     
+		} 
+	function age(){
+		var age;
+		age = document.getElementById('age').value;
+		age = age.Trim();
+		if(age.length==0)
+			document.getElementById('age_error').innerHTML = "Please enter your age";
+		else
+			document.getElementById('age_error').innerHTML = ""
+	}
+	function gender(){
+		var gender;
+		gender = document.getElementById('gender').value;
+		gender = gender.Trim();
+		if(gender.length==0)
+			document.getElementById('gender_error').innerHTML = "Please enter your gender: Male or Female";
+		else
+			document.getElementById('gender_error').innerHTML = ""
+	}
+	function income(){
+		var income;
+		income = document.getElementById('income').value;
+		income = income.Trim();
+		if(income.length==0)
+			document.getElementById('income_error').innerHTML = "Please enter your annual income";
+		else
+			document.getElementById('income_error').innerHTML = ""
+	}
+			                //---------------------------------------------------------------------------     
+function regist(){       
+	      
+	var pass_error=document.getElementById('pass_error').innerHTML;    var rpass_error=document.getElementById('rpass_error').innerHTML;    var email_error=document.getElementById('email_error').innerHTML;    var iphone_error=document.getElementById('iphone_error').innerHTML;    
+	var age_error=document.getElementById('age_error').innerHTML; 
+	var gender_error=document.getElementById('gender_error').innerHTML;
+	var income_error=document.getElementById('income_error').innerHTML;
+	     
+	var pass=document.getElementById('pass').value;      
+	var rpass=document.getElementById('rpass').value;      
+	var email=document.getElementById('email').value;   
+	var mobile=document.getElementById('mobile').value;
+	var age=document.getElementById('age').value;
+	var gender=document.getElementById('gender').value;
+	var income=document.getElementById('income').value;
+	 if (( pass_error == "" && rpass_error == ""&& iphone_error == "" && email_error == ""&& age_error == ""&& gender_error == ""&& income_error == "")&&( pass != "" && rpass != "" && email != ""&& age!=""&& gender!=""&& income!="")) {       
+	 alert ("Congratulation,you have successfully registed!");       
+	 } 
+	 else {         
+	 	alert ("Soory but registration has failed. Please check the information you have entered.");               
+	}                 
+	} 
+</script>  
+</head>
+<body>
+<form action="connection.php" method="post">
+<div class = "example">
+	<ul id = "nav">
+    	<li><a href="himalaya.html">Home</a></li>
+		<li><a class = "fly" href="#">Books</a>
+        	<ul class = "dd">
+            	<li><a href=" ">Fiction</a></li>
+                <li><a href=" ">Non-Fiction</a></li>
+                <li><a href=" ">Science Fiction</a></li>
+                <li><a href=" ">Romance</a></li>
+                <li><a href=" ">Mystery</a></li>
+  			</ul>
+		</li>
+        <li><a class = "fly" href="#">Technology</a>
+        	<ul class = "dd">
+            	<li><a href=" ">Computer</a></li>
+                <li><a href=" ">Coffee Machine</a></li>
+                <li><a href=" ">Mobile Phone</a></li>
+                <li><a href=" ">Portabe Heater</a></li>
+                <li><a href=" ">Kindle</a></li>
+  			</ul>
+		</li>
+        </li>
+        <li><a class = "fly" href="#">Clothes</a>
+        	<ul class = "dd">
+            	<li><a class = "fly" href="#">Men</a>
+                	<ul>
+                    	<li><a class = "fly" href="#">Top</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Bottom</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Shoes</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Kids</a></li>
+                        </ul>
+                    	</li>
+                    </ul>
+                </li>
+                <li><a class = "fly" href="#">Women</a>
+                	<ul>
+                    	<li><a class = "fly" href="#">Top</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Bottom</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Senior</a></li>
+                        </ul>
+                        </li>
+                        <li><a class = "fly" href="#">Shoes</a>
+                		<ul>
+            				<li><a href=" ">Junior</a></li>
+                			<li><a href=" ">Adult</a></li>
+                			<li><a href=" ">Kids</a></li>
+                        </ul>
+                    	</li>
+                    </ul>
+                </li>
+  			</ul>
+		</li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+	</ul>
+    </div>
+<div class = "textbox">
+<!--p style="padding:20px 20px 30px 150px"><font style = "font-size:28pt">User Register</font></p-->
+<h1> Registration</h1>
+ <form action="/">
+ <hr />
+ <div class="accounttype">
+      <input type="radio" value="None" id="radioOne" name="account" checked/>
+      <label for="radioOne" class="radio" chec>Buyer</label>
+      <input type="radio" value="None" id="radioTwo" name="account" />
+      <label for="radioTwo" class="radio">Seller</label>
+    </div>
+    <hr />
+
+  
+    <label id="icon" for="name"><i class="icon-envelope ">Email<span class = "front_input"></span></i></label><input id="email" type = "text" class = "_input" placeholder="Email" onblur="check_username()"/><span id = "Email_error" class = "after_input"></span><br />
+    
+    <label id="icon" for="name"><i class="icon-envelope ">Password<span class = "front_input"></span></label><input id = "pass" type = "password" class="_input" placeholder="Password" onblur = "check_pass()"/><span id = "pass_error" class = "after_input"></span><br />
+   
+    <label id="icon" for="name"><i class="icon-envelope ">Re-enter<span class = "front_input"></span></label><input id = "rpass" type = "password" class = "_input" placeholder="Re-enter Password" onblur = "check_rpass()" name = "rpass"/><span id = "rpass_error" class = "after_input"></span><br />
+    
+    <label id="icon" for="name"><i class="icon-envelope ">Phone<span class = "front_input"></span></label><input id = "mobile" type = "text" class = "_input" placeholder="Phone" onblur = "mobile()"/><span id="iphone_error" class = "after_input"></span><br />
+
+    <label id="icon" for="name"><i class="icon-envelope ">Age<span class = "front_input"></span></label><input id = "age" type = "text" class = "_input" placeholder="Age" onblur = "age()"/><span id="age_error" class = "after_input"></span><br />
+ 
+    <label id="icon" for="name"><i class="icon-envelope ">Gender<span class = "front_input"></span></label><input id = "gender" type = "text" class = "_input" placeholder="Gender" onblur = "gender()"/><span id="gender_error" class = "after_input"></span><br />
+    
+    
+    <label id="icon" for="name"><i class="icon-envelope ">Income<span class = "front_input"></span></label><input id = "income" type = "text" class = "_input" placeholder="Annual Income" onblur = "income()"/><span id="income_error" class = "after_input"></span><br />
+ 
+ 
+
+  
+ <div style = "clear:both;margin-left:330px;margin-top:50px;">
+ <!--button onclick = "regist()">Register</button-->
+ <input type = "submit" onclick="regist()" />
+ </div>
+ </ul>
+ 
+ </form>
+ </form>
+ </div>
+</body>
+</html>
