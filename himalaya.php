@@ -97,6 +97,15 @@ body {
     outline-width:0;
 }
 
+body,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4c4c4c;
+}
+
 /*popups*/
 #nav li a:active + ul.dd,#nav li a:focus + ul.dd,#nav li ul.dd:hover {
     left:0;

@@ -69,6 +69,15 @@ if(isset($_GET["action"]))
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>payment page</title>
 <style>
+body,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4c4c4c;
+}
+
 .header{
 	background-color:#E8E8E8;
 	width:300px;

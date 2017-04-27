@@ -4,6 +4,14 @@ form {
                 width:500px;
                 margin:left;
 }
+body,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4c4c4c;
+}
 .search {
                 padding:8px 15px;
                 background:rgba(50, 50, 50, 0.2);

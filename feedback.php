@@ -22,6 +22,15 @@ body {
     -webkit-border-radius:3px;
 }
 
+body,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4c4c4c;
+}
+
 /* main menu styles */
 #nav,#nav ul {
     background-image:url(../images/tr75.png);

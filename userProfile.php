@@ -10,6 +10,14 @@ body {
     margin:0;
     padding:0;
 }
+body,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4c4c4c;
+}
 .example {
     background:#fff url(../images/tech.jpg);
     /*width:770px;
