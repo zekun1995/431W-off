@@ -295,12 +295,14 @@ if ($categorie == 1) {
             $price = $row2["Price"];
         }
 ?>
+<div class="div1">
+<a href="#"><img src="<?php echo $link ?>" width="300" height="350"/></a>
+</div>
 <div class="div2">
 <p><b><font size="+3"><?php echo $name ?></font></b></p>
 <p>Categorie: <?php echo $categories ?></p>
-<a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
+<p>Price: <font color="red" size="+1">$<?php echo $price ?></font></p>
 <p>Info: <br><?php echo $info; ?></p>
-<p>Price: <?php echo $price ?> USD</p>
 <?php
     } else {
         echo "0 results";
@@ -319,15 +321,16 @@ if ($categorie == 2) {
             $price = $row2["Price"];
         }
 ?>
+<div class="div1">
+<a href="#"><img src="<?php echo $link ?>" width="300" height="350"/></a>
+</div>
 <div class="div2">
-<div class="list">
 <p><b><font size="+3"><?php echo $name ?></font></b></p>
 <p>Categorie: <?php echo $categories ?></p>
-<a href="#"><img src="<?php echo $link ?>" width="150" height="150"/></a>
 <p>Gender: <?php echo $gender?></p>
 <p>Size: <?php echo $size?></p>
+<p>Price: <font color="red" size="+1">$<?php echo $price ?></font></p>
 <p>Info: <br><?php echo $info; ?></p>
-<p>Price: <?php echo $price ?> USD</p>
 <?php
     } else {
         echo "0 results";
