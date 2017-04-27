@@ -101,17 +101,17 @@ select {
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">1. Shipping Address</font></p>
 </div>
 
-<span class = "front_input">Name:</span><input id="name" type = "text" class = "_input"  /><br />
+<span class = "front_input">Name:</span><input id="name" type = "text" class = "_input"  required/><br />
     
-    <span class = "front_input">Address:</span><input id = "address" type = "password" class="_input" /><br/>
+    <span class = "front_input">Address:</span><input id = "address" type = "password" class="_input" required/><br/>
 
-    <span class = "front_input">City:</span><input id = "city" type = "password" class = "_input" /><br />
+    <span class = "front_input">City:</span><input id = "city" type = "password" class = "_input" required/><br />
   
-    <span class = "front_input">State:</span><input id = "state" type = "text" class = "_input" /><br />
+    <span class = "front_input">State:</span><input id = "state" type = "text" class = "_input" required/><br />
     
-    <span class = "front_input">Zip code:</span><input id = "zip" type = "text" class = "_input" /><br />
+    <span class = "front_input">Zip code:</span><input id = "zip" type = "text" class = "_input" required/><br />
    
-    <span class = "front_input">Phone:</span><input id = "phone" type = "text" class = "_input" /><br />
+    <span class = "front_input">Phone:</span><input id = "phone" type = "text" class = "_input" required/><br />
     
     <div class = "header">
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">2. Shipping Options</font></p>
@@ -127,7 +127,7 @@ select {
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">3. Payment Method</font></p>
 </div>
 
-<span class = "front_input">Card number:</span><input id = "cardnum" type = "text" class = "_input" /><br />
+<span class = "front_input">Card number:</span><input id = "cardnum" type = "text" class = "_input" required/><br />
 Expiration:
     <select name="sel">
     <option value="1">01</option>
@@ -158,8 +158,8 @@ Expiration:
     <option value="11">2027</option>
     <option value="12">2028</option>
 </select><br />
-    <span class = "front_input">CVV/CVC:</span><input id = "cvv" type = "text" class = "_input" /><br />
-    <span class = "front_input">Name:</span><input id = "mobile" type = "text" class = "_input" /><br />
+    <span class = "front_input">CVV/CVC:</span><input id = "cvv" type = "text" class = "_input" required/><br />
+    <span class = "front_input">Name:</span><input id = "mobile" type = "text" class = "_input" required/><br />
     
     <br><button type="submit" name ="submit">Buy!!!</button>
     </form>
