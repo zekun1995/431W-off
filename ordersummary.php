@@ -99,6 +99,28 @@ width:200px;
 margin-right:30px;
 /*text-align:right;*/
 }
+
+form {
+                width:500px;
+                margin:left;
+}
+.search {
+                padding:8px 15px;
+                background:rgba(50, 50, 50, 0.2);
+                border:0px solid #dbdbdb;
+}
+.button {
+                position:relative;
+                padding:6px 15px;
+                left:-8px;
+                border:2px solid #207cca;
+                background-color:#BCBCBC;
+                color:#fafafa;
+}
+.button:hover  {
+                background-color:#fafafa;
+                color:#207cca;
+}
 </style>
 </head>
 
@@ -110,9 +132,9 @@ margin-right:30px;
 
 <label><span class = "front_input">Name:</span><input id="name" type = "text" class = "_input"  required/></label><br />
     
-    <label><span class = "front_input">Address:</span><input id = "address" type = "password" class="_input" required/></label><br/>
+    <label><span class = "front_input">Address:</span><input id = "address" type = "text" class="_input" required/></label><br/>
 
-    <label><span class = "front_input">City:</span><input id = "city" type = "password" class = "_input" required/></label><br />
+    <label><span class = "front_input">City:</span><input id = "city" type = "text" class = "_input" required/></label><br />
   
     <label><span class = "front_input">State:</span><input id = "state" type = "text" class = "_input" required/></label><br />
     
@@ -134,8 +156,8 @@ margin-right:30px;
 <p style="padding:10px 10px 10px 10px"><font style = "font-size:18pt">3. Payment Method</font></p>
 </div>
 
-<span class = "front_input">Card number:</span><input id = "cardnum" type = "text" class = "_input" required/><br />
-Expiration:
+<label><span class = "front_input">Card number:</span><input id = "cardnum" type = "text" class = "_input" required/></label><br />
+Expiration:<br>
     <select name="sel">
     <option value="1">01</option>
     <option value="2">02</option>
@@ -165,10 +187,10 @@ Expiration:
     <option value="11">2027</option>
     <option value="12">2028</option>
 </select><br />
-    <span class = "front_input">CVV/CVC:</span><input id = "cvv" type = "text" class = "_input" required/><br />
-    <span class = "front_input">Name:</span><input id = "mobile" type = "text" class = "_input" required/><br />
+    <label><span class = "front_input">CVV/CVC:</span><input id = "cvv" type = "text" class = "_input" required/></label><br />
+    <label><span class = "front_input">Name:</span><input id = "mobile" type = "text" class = "_input" required/></label><br />
     
-    <br><button type="submit" name ="submit">Buy!!!</button>
+    <br><button type="submit" name ="submit" class="button">Buy!!!</button>
     </form>
 
 <div class="divpf">
