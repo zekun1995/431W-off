@@ -65,6 +65,9 @@ $cusid = $_GET["id"];
       $query = ("INSERT INTO Order_contains(OrderID, ItemID) VALUES ('$id', $itemid)");
       mysqli_query($conn, $query);
 
+      $query = ("UPDATE Sell_Item SET Qty = Qty - $qty WHERE Sell_Item.ItemID = $itemid");
+      mysqli_query($conn, $query);
+
       echo "<p>You have placed your order!!!</p>";
       echo "Your order ID: ", $id;
 

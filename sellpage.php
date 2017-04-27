@@ -262,13 +262,14 @@ if (mysqli_num_rows($result) > 0) {
 
 //output books
 if ($categorie == 0) {
-    $sql2 = "SELECT Author, Categories, Price FROM Books, Sell_Item WHERE $itemid = Books.ItemID AND $itemid = Sell_Item.ItemID";
+    $sql2 = "SELECT Author, Categories, Qty, Price FROM Books, Sell_Item WHERE $itemid = Books.ItemID AND $itemid = Sell_Item.ItemID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
             $author = $row2["Author"];
             $price = $row2["Price"];
             $categories = $row2["Categories"];
+            $qty = $row2["Qty"];
         }
 ?>
 <div class="div1">
@@ -288,12 +289,13 @@ if ($categorie == 0) {
 
 //output tech
 if ($categorie == 1) {
-    $sql2 = "SELECT Categories, Price FROM Technology, Sell_Item WHERE $itemid = Technology.ItemID AND $itemid = Sell_Item.ItemID";
+    $sql2 = "SELECT Categories, Qty, Price FROM Technology, Sell_Item WHERE $itemid = Technology.ItemID AND $itemid = Sell_Item.ItemID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
             $categories = $row2["Categories"];
             $price = $row2["Price"];
+            $qty = $row2["Qty"];
         }
 ?>
 <div class="div1">
@@ -312,7 +314,7 @@ if ($categorie == 1) {
 
 //output clothes
 if ($categorie == 2) {
-    $sql2 = "SELECT Gender, Categories, Size, Price FROM Apparel, Sell_Item WHERE $itemid = Apparel.ItemID AND $itemid = Sell_Item.ItemID";
+    $sql2 = "SELECT Gender, Categories, Size, Qty, Price FROM Apparel, Sell_Item WHERE $itemid = Apparel.ItemID AND $itemid = Sell_Item.ItemID";
     $result2 = mysqli_query($conn, $sql2);
     if (mysqli_num_rows($result2) > 0) {
         while($row2 = mysqli_fetch_assoc($result2)) {
@@ -320,6 +322,7 @@ if ($categorie == 2) {
             $categories = $row2["Categories"];
             $size = $row2["Size"];
             $price = $row2["Price"];
+            $qty = $row2["Qty"];
         }
 ?>
 <div class="div1">
@@ -344,6 +347,7 @@ if ($categorie == 2) {
 <form method="post" action="index2.php?id=<?php echo $itemid?>">
     <button class="button" type="submit" name="submit value="Buy">Buy</button>
 </form>
+<p>In Stock: <?php echo $qty ?></p>
 <div class="div3">
 <p><b><font size="+2">Feedback:</font></b></p>
 <?php

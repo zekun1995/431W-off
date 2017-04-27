@@ -17,6 +17,7 @@
 		$name = $_POST['name'];
 		$info = $_POST['info'];
 		$price = $_POST['price'];
+		$qty = $_POST['qty'];
 		$etime = $_POST['etime'];
 		$sprice = $_POST['sprice'];
 		$rprice = $_POST['rprice'];
@@ -28,93 +29,99 @@
 		$size = $_POST['size'];
 		$pic = $_POST['picture'];
 
+		$query = ("SELECT MAX(ItemID) FROM Item");
+		$result = mysqli_query($conn, $query);
+		if (mysqli_num_rows($result) > 0) {
+			while($row = mysqli_fetch_assoc($result)) {
+				$id = $row['MAX(ItemID)'];
+			 }
+		} else {
+		     echo "0 results";
+		}
+
+		$id = $id + 1;
 
 		if (isset($_POST['sell']))
 		{
 			if (isset($_POST['book']))
 			{
-				$query = ("INSERT INTO Item (Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$name', '$info', '0', '0', '$pic')");
-				mysqli_query($conn, $query);
-				$id = mysqli_insert_id($conn);
+				$query = ("INSERT INTO Item (ItemID, Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$id', '$name', '$info', '0', '0', '$pic')");
+				$check = mysqli_query($conn, $query);
 
-				$query = ("INSERT INTO Sell_Item (ItemID, Price) VALUES ('$id', '$price')");
-				mysqli_query($conn, $query);
+				$query = ("INSERT INTO Sell_Item (ItemID, Qty, Price) VALUES ('$id', '$qty', '$price')");
+				$check = mysqli_query($conn, $query);
 
 				$query = ("INSERT INTO Books (ItemID, Author, Categories) VALUES ('$id', '$author', '$genre')");
-				mysqli_query($conn, $query);
+				$check = mysqli_query($conn, $query);
 
 			} else if (isset($_POST['tech'])) {
-				$query = ("INSERT INTO Item (Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$name', '$info', '0', '1', '$pic')");
-				mysqli_query($conn, $query);
-				$id = mysqli_insert_id($conn);
+				$query = ("INSERT INTO Item (ItemID, Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$id', '$name', '$info', '0', '1', '$pic')");
+				$check = mysqli_query($conn, $query);
 				
-				$query = ("INSERT INTO Sell_Item (ItemID, Price) VALUES ('$id', '$price')");
-				mysqli_query($conn, $query);
+				$query = ("INSERT INTO Sell_Item (ItemID, Qty, Price) VALUES ('$id', '$qty', '$price')");
+				$check = mysqli_query($conn, $query);
 
 				$query = ("INSERT INTO Technology (ItemID, Categories) VALUES ('$id', '$tcategorie')");
-				mysqli_query($conn, $query);
+				$check = mysqli_query($conn, $query);
 
 			} else if (isset($_POST['clothes'])) {
-				$query = ("INSERT INTO Item (Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$name', '$info', '0', '2', '$pic')");
-				mysqli_query($conn, $query);
-				$id = mysqli_insert_id($conn);
+				$query = ("INSERT INTO Item (ItemID, Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$id', '$name', '$info', '0', '2', '$pic')");
+				$check = mysqli_query($conn, $query);
 				
-				$query = ("INSERT INTO Sell_Item (ItemID, Price) VALUES ('$id', '$price')");
-				mysqli_query($conn, $query);
+				$query = ("INSERT INTO Sell_Item (ItemID, Qty, Price) VALUES ('$id', '$qty', '$price')");
+				$check = mysqli_query($conn, $query);
 
 				$query = ("INSERT INTO Apparel (ItemID, Gender, Categories, Size) VALUES ('$id', '$gender', '$acategorie', '$size')");
-				mysqli_query($conn, $query);
+				$check = mysqli_query($conn, $query);
 
 			}
 		} else if (isset($_POST['bid'])) {
 			if (isset($_POST['book']))
 			{
-				$query = ("INSERT INTO Item (Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$name', '$info', '1', '0', '$pic')");
-				mysqli_query($conn, $query);
-				$id = mysqli_insert_id($conn);
+				$query = ("INSERT INTO Item (ItemID, Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$id', '$name', '$info', '1', '0', '$pic')");
+				$check = mysqli_query($conn, $query);
 
 				$query = ("INSERT INTO Bid_Item (ItemID, Start_Price, Reserve_Price) VALUES ('$id', '$sprice', '$rprice')");
-				mysqli_query($conn, $query);
+				$check = mysqli_query($conn, $query);
 
 				$query = ("INSERT INTO Books (ItemID, Author, Categories) VALUES ('$id', '$author', '$genre')");
-				mysqli_query($conn, $query);
+				$check = mysqli_query($conn, $query);
 
 			} else if (isset($_POST['tech'])) {
-				$query = ("INSERT INTO Item (Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$name', '$info', '1', '1', '$pic')");
-				mysqli_query($conn, $query);
-				$id = mysqli_insert_id($conn);
+				$query = ("INSERT INTO Item (ItemID, Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$id', '$name', '$info', '1', '1', '$pic')");
+				$check = mysqli_query($conn, $query);
 				
 				$query = ("INSERT INTO Bid_Item (ItemID, Start_Price, Reserve_Price) VALUES ('$id', '$sprice', '$rprice')");
-				mysqli_query($conn, $query);
+				$check = mysqli_query($conn, $query);
 
 				$query = ("INSERT INTO Technology (ItemID, Categories) VALUES ('$id', '$tcategorie')");
-				mysqli_query($conn, $query);
+				$check = mysqli_query($conn, $query);
 
 			} else if (isset($_POST['clothes'])) {
-				$query = ("INSERT INTO Item (Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$name', '$info', '1', '2', '$pic')");
-				mysqli_query($conn, $query);
-				$id = mysqli_insert_id($conn);
+				$query = ("INSERT INTO Item (ItemID, Name, Info, Sell_Method, Categorie, Picture_Link) VALUES ('$id', '$name', '$info', '1', '2', '$pic')");
+				$check = mysqli_query($conn, $query);
 				
 				$query = ("INSERT INTO Bid_Item (ItemID, Start_Price, Reserve_Price) VALUES ('$id', '$sprice', '$rprice')");
-				mysqli_query($conn, $query);
+				$check = mysqli_query($conn, $query);
 
 				$query = ("INSERT INTO Apparel (ItemID, Gender, Categories, Size) VALUES ('$id', '$gender', '$acategorie', '$size')");
-				mysqli_query($conn, $query);
+				$check = mysqli_query($conn, $query);
 			}
 		}
 
-		/*if(mysqli_query($conn, $query))
+		if($check)
 		{
+			//Close connection
+			mysqli_close($conn);
 			echo "<script>alert('INSERTED SUCCESSFULLY');</script>";
-			//header("Location: ../himalaya.php");
+			header("Location: ../himalaya.php");
 		}
 		else
 		{
+			//Close connection
+			mysqli_close($conn);
 			echo "<script>alert('FAILED TO INSERT');</script>";
-			//header("Location: ../register.html");
-		}*/
+			header("Location: ../add_item.html");
+		}
 	}
-
-	//Close connection
-	mysqli_close($conn);
 ?>
