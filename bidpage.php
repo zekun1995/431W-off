@@ -377,7 +377,7 @@ if ($categorie == 2) {
 mysqli_close($conn);
 ?>
 <form action="phpfunctions/new_bid.php?item=<?php echo $itemid ?>" method="post">
-Your Bid: <input type="text" name="bid"><button class="button" type="submit" name="sub" value="Bid">Bid
+Your Bid: <input type="text" name="bid" value="<?php echo number_format($cprice+2,2) ?>"><button class="button" type="submit" name="sub" value="Bid">Bid
 </form>
 </div>
 </body>
