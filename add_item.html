@@ -31,15 +31,6 @@ body {
     -webkit-border-radius:3px;
 }
 
-body,
-input,
-textarea,
-select {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  color: #4c4c4c;
-}
-
 /* main menu styles */
 #nav,#nav ul {
     background-image:url(../images/tr75.png);
@@ -72,7 +63,7 @@ select {
     position:relative;
 }
 #nav li a {
-	
+    
     background:#c1c1bf;
     color:#000;
     display:block;
@@ -90,7 +81,7 @@ select {
     overflow:hidden;
 }
 #nav li a.fly {
-	margin:0 auto; 
+    margin:0 auto; 
     background:#c1c1bf url(../images/arrow.gif) no-repeat right center;
     padding-right:15px;
 }
@@ -106,7 +97,7 @@ select {
 
 /*hover styles*/
 #nav li:hover > a {
-	
+    
     background-color:#858180;
     color:#fff;
 }
@@ -139,11 +130,216 @@ select {
 }
 input[type="radio"]:checked ~ .reveal-if-active, input[type="checkbox"]:checked ~ .reveal-if-active {
   opacity: 1;
-  max-height: 100px;
+  max-height: 5000px;
   padding: 10px 20px;
   -webkit-transform: scale(1);
           transform: scale(1);
   overflow: visible;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
+pre, form, fieldset, input, textarea, p, blockquote, th, td { 
+  padding:0;
+  margin:0;}
+
+fieldset, img {border:0}
+
+ol, ul, li {list-style:none}
+
+:focus {outline:none}
+
+body,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4c4c4c;
+}
+
+p {
+  font-size: 12px;
+  width: 150px;
+  display: inline-block;
+  margin-left: 18px;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 300;
+  color: #4c4c4c;
+  text-align: left;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+
+html{
+  background-color: #ffffff;
+}
+
+.testbox {
+  margin: 20px auto;
+  width: 343px; 
+  height: 464px; 
+  -webkit-border-radius: 8px/7px; 
+  -moz-border-radius: 8px/7px; 
+  border-radius: 8px/7px; 
+  background-color: #ebebeb; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+}
+
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+form{
+  margin: 0 30px;
+}
+
+label.checkbox {
+    cursor: pointer;
+  text-indent: 35px;
+  overflow: visible;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+label.checkbox:before {
+  background: #3a57af;
+  content:'';
+  position: absolute;
+  top:2px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+label.checkbox:after {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 0.5em;
+    height: 0.25em;
+    background: transparent;
+    top: 7.5px;
+    left: 4.5px;
+    border: 3px solid #ffffff;
+    border-top: none;
+    border-right: none;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+input[type=checkbox]:checked + label:after {
+    opacity: 1;
+}
+
+hr{
+  color: #a9a9a9;
+  opacity: 0.3;
+}
+
+input[type=text],input[type=password]{
+  width: 200px; 
+  height: 39px; 
+  -webkit-border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
+  -moz-border-radius: 0px 4px 4px 0px/0px 0px 4px 4px; 
+  border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
+  background-color: #fff; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  border: solid 1px #cbc9c9;
+  margin-left: -5px;
+  margin-top: 13px; 
+  padding-left: 10px;
+}
+
+input[type=password]{
+  margin-bottom: 25px;
+}
+
+#icon {
+  display: inline-block;
+  width: 100px;
+  background-color: #3a57af;
+  padding: 8px 0px 8px 15px;
+  margin-left: 15px;
+  -webkit-border-radius: 4px 0px 0px 4px; 
+  -moz-border-radius: 4px 0px 0px 4px; 
+  border-radius: 4px 0px 0px 4px;
+  color: white;
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09);
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  border: solid 0px #cbc9c9;
+}
+
+.accounttype{
+  margin-left: 8px;
+  margin-top: 20px;
+}
+
+a.button {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  padding: 6px 25px 0px 20px;
+  margin: 10px 8px 20px 0px;
+  display: inline-block;
+  float: right;
+  text-decoration: none;
+  width: 50px; height: 27px; 
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px; 
+  background-color: #3a57af; 
+  -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
+  -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
+  box-shadow: 0 3px rgba(58,87,175,.75);
+  transition: all 0.1s linear 0s; 
+  top: 0px;
+  position: relative;
+}
+
+a.button:hover {
+  top: 3px;
+  background-color:#2e458b;
+  -webkit-box-shadow: none; 
+  -moz-box-shadow: none; 
+  box-shadow: none;
+  
+}
+
+form {
+                width:600px;
+                margin:left;
+}
+.search {
+                padding:8px 15px;
+                background:rgba(50, 50, 50, 0.2);
+                border:0px solid #dbdbdb;
+}
+.button {
+                position:relative;
+                padding:6px 15px;
+                left:-8px;
+                border:2px solid #207cca;
+                background-color:#BCBCBC;
+                color:#fafafa;
+}
+.button:hover  {
+                background-color:#fafafa;
+                color:#207cca;
 }
 
 </style>
@@ -350,54 +546,59 @@ function regist(){
         <li><a href="register.html">Register</a></li>
 	</ul>
 
-<p style="padding:20px 20px 30px 150px"><font style = "font-size:28pt">Add a New Item</font></p>
+<h1>Add a New Item</h1>
 <ul>
 <form action="phpfunctions/insertItem.php" method="post">
-    <span class = "front_input">Name:</span><input name="name" type = "text" class = "_input"/><br>
-    <span class = "front_input">Info:</span><input name="info" type = "text" class = "_input"/><br>
-    <span class = "front_input">Sell Method:</span><br>
+    <label id="icon"><i class="icon-envelope ">Name:<span class = "front_input"></span></i></label><input name="name" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Info:<span class = "front_input"></span></i></label><input name="info" type = "text" class = "_input"/><br>
+    <br><span class = "front_input">Sell Method:</span><br>
 
     <div>
-    <span class = "front_input">Sell</span><input name="sell" type = "checkbox" class = "_input"/><br>
+    <input type="checkbox" value="None" id="radioOne" name="Sell"/>
+    <label for="radioOne" class="checkbox">Sell</label>
     <div class ="reveal-if-active">
-    <span class = "front_input">Price:</span><input name="price" type = "text" class = "_input"/><br>
-    <span class = "front_input">Quantity:</span><input name="qty" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Price:<span class = "front_input"></span></i></label><input name="price" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Quantity:<span class = "front_input"></span></i></label><input name="qty" type = "text" class = "_input"/><br>
     </div>
 
     <div>
-    <span class = "front_input">Bid</span><input name="bid" type = "checkbox" class = "_input"/><br>
+    <input type="checkbox" value="None" id="radioTwo" name="Bid"/>
+    <label for="radioTwo" class="checkbox">Bid</label>
     <div class ="reveal-if-active">
-    <span class = "front_input">End Time:</span><input name="etime" type = "text" class = "_input"/><br>
-    <span class = "front_input">Starting Price:</span><input name="sprice" type = "text" class = "_input"/><br>
-    <span class = "front_input">Reserve Price:</span><input name="rprice" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">End Time:<span class = "front_input"></span></i></label><input name="etime" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Starting Price:<span class = "front_input"></span></i></label><input name="sprice" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Reserve Price:<span class = "front_input"></span></i></label><input name="rprice" type = "text" class = "_input"/><br>
     </div>
 
     <span class = "front_input">Categorie:</span><br>
 
     <div>
-    <span class = "front_input">Book</span><input name="book" type = "checkbox" class = "_input"/><br>
+    <input type="checkbox" value="None" id="radioThree" name="Book"/>
+    <label for="radioThree" class="checkbox">Book</label>
     <div class ="reveal-if-active">
-    <span class = "front_input">Author:</span><input name="author" type = "text" class = "_input"/><br>
-    <span class = "front_input">Genre: </span><input name="genre" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Author:<span class = "front_input"></span></i></label><input name="author" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Genre:<span class = "front_input"></span></i></label><input name="genre" type = "text" class = "_input"/><br>
     </div>
 
     <div>
-    <span class = "front_input">Technology</span><input name="tech" type = "checkbox" class = "_input"/><br>
+    <input type="checkbox" value="None" id="radioFour" name="tech"/>
+    <label for="radioFour" class="checkbox">Techology</label>
     <div class ="reveal-if-active">
-    <span class = "front_input">Categorie: </span><input name="tcategorie" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Categorie:<span class = "front_input"></span></i></label><input name="tcategorie" type = "text" class = "_input"/><br>
     </div>
 
     <div>
-    <span class = "front_input">Clothes</span><input name="clothes" type = "checkbox" class = "_input"/><br>
+    <input type="checkbox" value="None" id="radioFive" name="clothes"/>
+    <label for="radioFive" class="checkbox">Clothes</label>
     <div class ="reveal-if-active">
-    <span class = "front_input">Gender:</span><input name="gender" type = "text" class = "_input"/><br>
-    <span class = "front_input">Categorie: </span><input name="acategorie" type = "text" class = "_input"/><br>
-    <span class = "front_input">Size:</span><input name="size" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Gender:<span class = "front_input"></span></i></label><input name="gender" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Categorie:<span class = "front_input"></span></i></label><input name="acategorie" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Size:<span class = "front_input"></span></i></label><input name="size" type = "text" class = "_input"/><br>
     </div>
     
-    <span class = "front_input">Picture Link:</span><input name="picture" type = "text" class = "_input"/><br>
+    <label id="icon"><i class="icon-envelope ">Pciture Link:<span class = "front_input"></span></i></label><input name="picture" type = "text" class = "_input"/><br>
     <div style = "clear:both;margin-left:330px;margin-top:50px;">
-    <button type="submit" name="add">Add Item</button>
+    <button type="submit" name="add" class="button">Add Item</button>
     </div>
 </form>
 </ul>
